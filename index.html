@@ -224,6 +224,30 @@
             margin: 20px auto; /* To center the button */
         }
 
+        /* NEW: Game button styling */
+        .game-button {
+            display: inline-block;
+            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+            margin: 20px auto;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .game-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+            background: linear-gradient(to right, #ff5252, #ff7b7b);
+        }
+
         /* Bell animation (shake) */
         .ringing {
             animation: ring 0.3s linear infinite;
@@ -591,6 +615,10 @@
             .survey-button {
                 font-size: 1em;
             }
+            .game-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
         }
     </style>
 </head>
@@ -618,6 +646,15 @@
             <p style="text-align: center; color: #1e4870; font-weight: bold;">click the screen twice to watch the video because they have to click watch video too please</p>
             <div class="video-container">
                 <iframe id="video-iframe" src="https://www.youtube.com/embed/TaHQkh5Y0sU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <!-- NEW: Game Button Section -->
+            <div style="text-align: center; margin: 30px 0;">
+                <p class="button-title-text">🎮 Play our fun game and win a prize! 🎮</p>
+                <a href="https://taniad2169.github.io/Web-Swan-Game/" target="_blank" class="game-button">
+                    🎯 Play Game & Win a Prize!
+                </a>
+                <p style="color: #1e4870; font-weight: bold; margin-top: 10px;">Click the button above to play our exciting game and have a chance to win!</p>
             </div>
 
             <p class="button-title-text">ready to take your business to the next level ? click the bell to unlock your free demo!</p>
