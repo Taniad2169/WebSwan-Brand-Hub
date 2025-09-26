@@ -42,22 +42,142 @@
 
         header p {
             font-size: 1.2em;
-            color: #3b5a7a;
-            font-style: italic;
+            color: #1e4870;
+            font-weight: bold;
+        }
+        
+        /* NEW: Style for the new title */
+        .header-title-text {
+            font-size: 1.2em;
+            color: navy;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            margin-top: 10px;
         }
 
-        /* YouTube video and button grid */
-        .video-player {
+        .header-emoji-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .header-emoji {
+            font-size: 2em;
+            position: absolute;
+            animation-duration: 10s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            opacity: 0;
+        }
+
+        /* UPDATED: New emoji animation - coming closer and getting bigger */
+        .laptop-emoji {
+            top: 10%;
+            left: -10%;
+            animation-name: flyInCloser;
+            animation-delay: 0s;
+        }
+
+        .lightbulb-emoji {
+            top: 25%;
+            left: -10%;
+            animation-name: flyInCloser;
+            animation-delay: 1.5s;
+        }
+
+        .target-emoji {
+            top: 40%;
+            left: -10%;
+            animation-name: flyInCloser;
+            animation-delay: 3s;
+        }
+
+        .bell-emoji {
+            top: 55%;
+            left: -10%;
+            animation-name: flyInCloser;
+            animation-delay: 4.5s;
+        }
+
+        .key-emoji {
+            top: 70%;
+            left: -10%;
+            animation-name: flyInCloser;
+            animation-delay: 6s;
+        }
+
+        .money-emoji {
+            top: 85%;
+            left: -10%;
+            animation-name: flyInCloser;
+            animation-delay: 7.5s;
+        }
+        
+        .wifi-emoji {
+            top: 5%;
+            left: -10%;
+            animation-name: flyInCloser;
+            animation-delay: 9s;
+        }
+        
+        .globe-emoji {
+            top: 90%;
+            left: -10%;
+            animation-name: flyInCloser;
+            animation-delay: 10.5s;
+        }
+
+        @keyframes flyInCloser {
+            0% {
+                transform: translateX(0) translateZ(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateX(50vw) translateZ(200px) scale(2);
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(120vw) translateZ(0) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* Main Content Section Styles */
+        .content-section {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* UPDATED: YouTube Video Section Background */
+        #youtube-player .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
             max-width: 100%;
-            background: #000;
-            margin-bottom: 20px;
+            background: linear-gradient(to right, #83bbc9, white);
+            border-radius: 8px;
         }
 
-        .video-player iframe {
+        #youtube-player .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -65,77 +185,278 @@
             height: 100%;
         }
 
-        .button-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 20px;
+        .video-thumbnails {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            gap: 15px;
         }
 
-        .action-button {
-            padding: 15px 20px;
-            font-size: 1.1em;
-            font-weight: bold;
-            color: white;
-            background-color: #3b5a7a;
-            border: none;
+        .video-thumbnail {
+            width: 120px;
+            height: 90px;
             border-radius: 8px;
+            overflow: hidden;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .video-thumbnail:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .action-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        /* NEW: Styles for the new demo button, bell animation, and confetti */
+        #demoBtn {
+            font-size: 40px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            display: block; /* To center the button */
+            margin: 20px auto; /* To center the button */
         }
 
-        .action-button:active {
-            transform: translateY(1px);
+        /* Bell animation (shake) */
+        .ringing {
+            animation: ring 0.3s linear infinite;
         }
 
-        /* Modal styles */
+        @keyframes ring {
+            0% { transform: rotate(0); }
+            25% { transform: rotate(15deg); }
+            50% { transform: rotate(0); }
+            75% { transform: rotate(-15deg); }
+            100% { transform: rotate(0); }
+        }
+
+        /* Confetti canvas */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .button-title-text {
+            color: #1e4870;
+            font-weight: bold;
+            margin: 10px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        /* UPDATED: Quick Search Buttons - Changed color to #1e4870 */
+        .quick-search {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .quick-search button {
+            padding: 8px 15px;
+            border: 1px solid #1e4870;
+            border-radius: 20px;
+            background: white;
+            color: #1e4870;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        .quick-search button:hover {
+            background: #1e4870;
+            color: white;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #2cd0e6;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 2s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+            display: none;
+        }
+
+        /* Search Results Styling */
+        .search-results {
+            margin-top: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            background: white;
+            display: none;
+        }
+
+        .search-result {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-result:hover {
+            background-color: #f5f5f5;
+        }
+
+        .search-result img {
+            width: 120px;
+            height: 90px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 4px;
+        }
+
+        .search-result .video-info {
+            flex: 1;
+        }
+
+        .search-result .video-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        .search-result .video-channel {
+            color: #666;
+            font-size: 0.8em;
+        }
+
+        /* UPDATED: Demo Section Background */
+        .demo-section {
+            background: linear-gradient(to right, #d7faf2, white);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .appointment-cta {
+            background: linear-gradient(to right, #62b9cc, #cee7ed);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px auto;
+            max-width: 450px;
+            backdrop-filter: blur(5px);
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .appointment-cta ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+        }
+
+        .appointment-cta li {
+            margin-bottom: 10px;
+        }
+
+        .lock-button {
+            display: inline-block;
+            font-size: 2.5em;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            transition: transform 0.3s ease;
+            margin-bottom: 10px;
+        }
+        
+        .lock-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* NEW: Survey button styling */
+        .survey-button {
+            display: inline-block;
+            font-size: 1.2em;
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            transition: transform 0.3s ease;
+            color: #1e4870;
+            font-weight: bold;
+        }
+        
+        .survey-button:hover {
+            transform: scale(1.05);
+        }
+
+        .hand-pointer {
+            font-size: 1.5em;
+            display: block;
+            margin: 5px auto;
+            animation: bounce 2s infinite;
+        }
+
+        /* Modal for Links */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
+            z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.7);
+            background-color: rgba(0,0,0,0.5);
         }
 
         .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
+            background-color: white;
+            margin: 10% auto;
             padding: 20px;
-            border: 1px solid #888;
+            border-radius: 10px;
             width: 80%;
             max-width: 600px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
-        .modal-content h3 {
-            color: #1e4870;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 10px;
-        }
-
-        .close-button {
-            color: #aaa;
+        .close-modal {
             float: right;
             font-size: 28px;
             font-weight: bold;
-        }
-
-        .close-button:hover,
-        .close-button:focus {
-            color: black;
-            text-decoration: none;
             cursor: pointer;
         }
 
@@ -149,195 +470,492 @@
         }
 
         .link-list a {
-            color: #3b5a7a;
+            color: #2cd0e6;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.2s;
+            cursor: pointer;
         }
 
         .link-list a:hover {
-            color: #1e4870;
             text-decoration: underline;
         }
 
-        /* Confetti animation */
-        @keyframes confetti-fall {
-            0% { transform: translateY(-100%); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(540deg); opacity: 0; }
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #fafaf2;
+            margin-top: 30px;
+            background: linear-gradient(to right, #2cd0e6, #58e8d7);
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background-color: #f0f;
-            animation: confetti-fall 3s linear infinite;
+        footer h3 {
+            color: navy;
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: navy;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .animated-emoji-container {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
             pointer-events: none;
+        }
+
+        .animated-emoji {
+            display: inline-block;
+            font-size: 2em;
+            margin: 0 10px;
+            animation: bounce 2s infinite ease-in-out;
+        }
+
+        .animated-emoji:nth-child(1) { animation-delay: 0s; }
+        .animated-emoji:nth-child(2) { animation-delay: 0.2s; }
+        .animated-emoji:nth-child(3) { animation-delay: 0.4s; }
+        .animated-emoji:nth-child(4) { animation-delay: 0.6s; }
+        .animated-emoji:nth-child(5) { animation-delay: 0.8s; }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        
+        /* Media query for smaller devices */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .content-section {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 2.5em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            .video-thumbnails {
+                gap: 10px;
+            }
+            .video-thumbnail {
+                width: 100px;
+                height: 75px;
+            }
+            footer h3 {
+                font-size: 1.2em;
+            }
+            .appointment-cta {
+                padding: 15px;
+                font-size: 1em;
+            }
+            .youtube-controls {
+                flex-direction: column;
+            }
+            .youtube-controls input[type="text"] {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .quick-search {
+                gap: 5px;
+            }
+            .quick-search button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+            .lock-button {
+                font-size: 1.2em;
+            }
+            .survey-button {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
 <body>
+
     <header>
+        <div class="header-emoji-container">
+            <span class="header-emoji laptop-emoji">💻</span>
+            <span class="header-emoji lightbulb-emoji">💡</span>
+            <span class="header-emoji target-emoji">🎯</span>
+            <span class="header-emoji bell-emoji">🔔</span>
+            <span class="header-emoji key-emoji">🔑</span>
+            <span class="header-emoji money-emoji">💰</span>
+            <span class="header-emoji wifi-emoji">🛜</span>
+            <span class="header-emoji globe-emoji">🌐</span>
+        </div>
         <h1>The WebSwan</h1>
-        <p>Bringing Your Ideas to Life</p>
+        <p>Your Path to a Stronger Online Presence</p>
+        <p class="header-title-text">ready to take your business to the next level ? click the lock to unlock your free demo!</p>
     </header>
 
-    <div class="container">
-        <div class="video-player">
-            <iframe id="youtube-iframe" width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=PLx0sYbCq-s-9A8J4q1-p3w9t-c2q9r23" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+    <main class="container">
+        <section id="youtube-player" class="content-section">
+            <h2>Our Videos</h2>
+            <p style="text-align: center; color: #1e4870; font-weight: bold;">click the screen twice to watch the video because they have to click watch video too please</p>
+            <div class="video-container">
+                <iframe id="video-iframe" src="https://www.youtube.com/embed/TaHQkh5Y0sU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
 
-        <div class="button-grid">
-            <button id="demoBtn" class="action-button">🔔</button>
-            <button id="unlockAudioBtn" class="action-button" style="display:none;">Tap to enable sound</button>
-            <button id="myBioBtn" class="action-button">👤 My Bio</button>
-            <button id="restaurantBarberBtn" class="action-button">🍔✂️ Restaurant & Barber</button>
-        </div>
-    </div>
+            <p class="button-title-text">ready to take your business to the next level ? click the bell to unlock your free demo!</p>
+            <button id="demoBtn">🔔</button>
+            <canvas id="confetti-canvas"></canvas>
+            <audio id="bellSound" src="mixkit-happy-bells-notification-937.mp3" preload="auto"></audio>
 
-    <div id="videoModal" class="modal">
+            <div class="quick-search">
+                <button id="reviewsBtn">⭐ Reviews</button>
+                <button id="websiteGalleryBtn">🖼️ Website Gallery</button>
+                <button id="webApplicationsBtn">⚡ Web Applications</button>
+                <button id="interactiveHubBtn">🎯 Interactive Hub</button>
+                <button id="seoTipsBtn">🔍 SEO Tips</button>
+                <button id="webDesignVsTemplatesBtn">🎨 Custom vs Template</button>
+                <button id="reputationManagementBtn">⭐ Reputation Management</button>
+                <button id="campaignMarketingBtn">📢 Campaign Marketing</button>
+                <button id="websiteTipsBtn">🌐 Website Tips</button>
+                <button id="professionalsBtn">👨‍⚕️👩‍💼 Professionals</button>
+                <button id="myBioBtn">👤 My Bio</button>
+                <button id="restaurantBarberBtn">🍔✂️ Restaurant/Barber</button>
+            </div>
+
+            <div class="video-thumbnails" id="video-thumbnails">
+                <div class="video-thumbnail" data-video-id="TaHQkh5Y0sU">
+                    <img src="https://img.youtube.com/vi/TaHQkh5Y0sU/mqdefault.jpg" alt="Video Thumbnail 1">
+                </div>
+                <div class="video-thumbnail" data-video-id="63wUeBevFwY">
+                    <img src="https://img.youtube.com/vi/63wUeBevFwY/mqdefault.jpg" alt="Video Thumbnail 2">
+                </div>
+                <div class="video-thumbnail" data-video-id="YeD6xzy6TDQ">
+                    <img src="https://img.youtube.com/vi/YeD6xzy6TDQ/mqdefault.jpg" alt="Video Thumbnail 3">
+                </div>
+                <div class="video-thumbnail" data-video-id="AFhPcpGo3bQ">
+                    <img src="https://img.youtube.com/vi/AFhPcpGo3bQ/mqdefault.jpg" alt="Video Thumbnail 4">
+                </div>
+                <div class="video-thumbnail" data-video-id="_S4m8bY5JWM">
+                    <img src="https://img.youtube.com/vi/_S4m8bY5JWM/mqdefault.jpg" alt="Video Thumbnail 5">
+                </div>
+                <div class="video-thumbnail" data-video-id="5YvMyeFZGZA">
+                    <img src="https://img.youtube.com/vi/5YvMyeFZGZA/mqdefault.jpg" alt="Video Thumbnail 6">
+                </div>
+                <div class="video-thumbnail" data-video-id="OrtLBd7xFac">
+                    <img src="https://img.youtube.com/vi/OrtLBd7xFac/mqdefault.jpg" alt="Custom Web Design vs Template Websites">
+                </div>
+                <div class="video-thumbnail" data-video-id="UNFkK0XC6dA">
+                    <img src="https://img.youtube.com/vi/UNFkK0XC6dA/mqdefault.jpg" alt="Campaign Marketing">
+                </div>
+                <div class="video-thumbnail" data-video-id="7UPFrt9z3_U">
+                    <img src="https://img.youtube.com/vi/7UPFrt9z3_U/mqdefault.jpg" alt="Website Tips">
+                </div>
+                <div class="video-thumbnail" data-video-id="AhrG8jgQn3E">
+                    <img src="https://img.youtube.com/vi/AhrG8jgQn3E/mqdefault.jpg" alt="Website Tips">
+                </div>
+                <div class="video-thumbnail" data-video-id="fIGlhDOziow">
+                    <img src="https://img.youtube.com/vi/fIGlhDOziow/mqdefault.jpg" alt="My Bio">
+                </div>
+                <div class="video-thumbnail" data-video-id="wRWmozD3wY4">
+                    <img src="https://img.youtube.com/vi/wRWmozD3wY4/mqdefault.jpg" alt="Website Tips">
+                </div>
+                <div class="video-thumbnail" data-video-id="hbgLZLsLTpg">
+                    <img src="https://img.youtube.com/vi/hbgLZLsLTpg/mqdefault.jpg" alt="Website Tips">
+                </div>
+                <div class="video-thumbnail" data-video-id="zwuc3cc9cMw">
+                    <img src="https://img.youtube.com/vi/zwuc3cc9cMw/mqdefault.jpg" alt="Website Tips">
+                </div>
+                <div class="video-thumbnail" data-video-id="nKuJo4ISGX4">
+                    <img src="https://img.youtube.com/vi/nKuJo4ISGX4/mqdefault.jpg" alt="Campaign Marketing">
+                </div>
+                <div class="video-thumbnail" data-video-id="eX1Q_5PMtp4">
+                    <img src="https://img.youtube.com/vi/eX1Q_5PMtp4/mqdefault.jpg" alt="Campaign Marketing">
+                </div>
+                <div class="video-thumbnail" data-video-id="gyOnq1_hWdE">
+                    <img src="https://img.youtube.com/vi/gyOnq1_hWdE/mqdefault.jpg" alt="Professionals">
+                </div>
+                <div class="video-thumbnail" data-video-id="9l8cmDEQz1k">
+                    <img src="https://img.youtube.com/vi/9l8cmDEQz1k/mqdefault.jpg" alt="Website Tips">
+                </div>
+                <div class="video-thumbnail" data-video-id="YeD6xzy6TDQ">
+                    <img src="https://img.youtube.com/vi/YeD6xzy6TDQ/mqdefault.jpg" alt="Professionals">
+                </div>
+                <div class="video-thumbnail" data-video-id="g0PYayzh49k">
+                    <img src="https://img.youtube.com/vi/g0PYayzh49k/mqdefault.jpg" alt="Campaign Marketing">
+                </div>
+                <div class="video-thumbnail" data-video-id="gqLRG8LjCjE">
+                    <img src="https://img.youtube.com/vi/gqLRG8LjCjE/mqdefault.jpg" alt="Website Tips">
+                </div>
+                <div class="video-thumbnail" data-video-id="sobmvBObvb8">
+                    <img src="https://img.youtube.com/vi/sobmvBObvb8/mqdefault.jpg" alt="My Bio">
+                </div>
+                <div class="video-thumbnail" data-video-id="Mot2WC3782Q">
+                    <img src="https://img.youtube.com/vi/Mot2WC3782Q/mqdefault.jpg" alt="Website Tips">
+                </div>
+                <div class="video-thumbnail" data-video-id="Xwd9ORiyz8c">
+                    <img src="https://img.youtube.com/vi/Xwd9ORiyz8c/mqdefault.jpg" alt="Restaurant/Barber">
+                </div>
+                <div class="video-thumbnail" data-video-id="0aGXbjSZ8KA">
+                    <img src="https://img.youtube.com/vi/0aGXbjSZ8KA/mqdefault.jpg" alt="Restaurant/Barber">
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <div class="appointment-cta">
+                <h3>Get Your Free Web Demo — No Cost, No Obligation</h3>
+                <p>Experience your site before you commit. If you don't love it, you don't pay a dime.</p>
+                <ul>
+                    <li>Custom design tailored to your brand — with a free, no-obligation demo to prove it.</li>
+                    <li>See your vision come to life, risk-free. Free demo. No cost. No pressure just results.</li>
+                    <li>Claim Your Free Demo Today</li>
+                    <li>See Your Business Online — Risk Free</li>
+                </ul>
+                <span class="hand-pointer">👇</span>
+                <a href="https://taniad2169.github.io/WebSwan-Free-Demo-App/" target="_blank" class="lock-button">
+                    🔐 click the lock to unlock your free demo!
+                </a>
+                <br>
+                <a href="https://taniad2169.github.io/WebSwan-Market-Research-Online-/" target="_blank" class="survey-button">
+                    🎯 click here to participate in our small survey to better understand your web design and digital needs
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <h3>Ready to Transform Your Online Presence?</h3>
+            <p>Contact us today to discuss your web design and digital marketing needs.</p>
+            <p>📧 Email: thewebswann@gmail.com | 📞 Phone: (415) 877-0687</p>
+        </div>
+        <div class="animated-emoji-container">
+            <span class="animated-emoji">💻</span>
+            <span class="animated-emoji">💡</span>
+            <span class="animated-emoji">💰</span>
+            <span class="animated-emoji">💻</span>
+            <span class="animated-emoji">😀</span>
+        </div>
+    </footer>
+
+    <div id="linksModal" class="modal">
         <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <div id="modalContentHtml"></div>
+            <span class="close-modal">×</span>
+            <div id="modalContent"></div>
         </div>
     </div>
-    <audio id="bellAudio" preload="auto">
-      <source src="mixkit-happy-bells-notification-937.mp3" type="audio/mpeg">
-    </audio>
 
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const iframe = document.getElementById('youtube-iframe');
+            // YouTube API Key (moved inside to avoid redeclaration)
+            const API_KEY = 'AIzaSyBQg_cE8BfYtln4U4saDN0_m3obwe9oIWo';
+
+            const videoIframe = document.getElementById('video-iframe');
+            const videoThumbnails = document.getElementById('video-thumbnails');
+            const modal = document.getElementById('linksModal');
+            const modalContent = document.getElementById('modalContent');
+            const closeModal = document.querySelector('.close-modal');
+
+            // NEW: Demo button and audio elements
             const demoBtn = document.getElementById('demoBtn');
-            const videoModal = document.getElementById('videoModal');
-            const modalContentHtml = document.getElementById('modalContentHtml');
-            const closeBtn = document.querySelector('.close-button');
-            const unlockBtn = document.getElementById('unlockAudioBtn');
-            const audio = document.getElementById('bellAudio');
+            const bellSound = document.getElementById('bellSound');
+            const signupURL = "https://taniad2169.github.io/WebSwan-Free-Demo-App/";
 
-            // --- NEW: Bell Sound Logic (Universal for all devices) ---
-            let audioCtx = null;
-            let buffer = null;
-            let useWebAudio = false;
-
-            // Fetch & decode into buffer (optional)
-            async function initWebAudio() {
-                try {
-                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                    const resp = await fetch('mixkit-happy-bells-notification-937.mp3', { mode: 'cors' });
-                    const ab = await resp.arrayBuffer();
-                    buffer = await audioCtx.decodeAudioData(ab);
-                    useWebAudio = true;
-                } catch (err) {
-                    audioCtx = null;
-                    buffer = null;
-                    useWebAudio = false;
-                    console.warn('WebAudio init failed, falling back to <audio>: ', err);
-                }
-            }
-
-            // User gesture unlock function
-            async function unlockAudio() {
-                if (audioCtx && audioCtx.state === 'suspended') {
-                    await audioCtx.resume();
-                }
-                try {
-                    audio.muted = true;
-                    await audio.play();
-                    audio.pause();
-                    audio.currentTime = 0;
-                    audio.muted = false;
-                } catch (e) {}
-
-                unlockBtn.style.display = 'none';
-                if (!audioCtx) {
-                    initWebAudio().catch(() => {});
-                }
-            }
-
-            unlockBtn.addEventListener('click', unlockAudio, { once: true });
-            document.addEventListener('touchstart', unlockAudio, { once: true });
-
-            // Call this to play the bell sound
-            window.playBell = function() {
-                if (useWebAudio && audioCtx && buffer) {
-                    const src = audioCtx.createBufferSource();
-                    src.buffer = buffer;
-                    src.connect(audioCtx.destination);
-                    src.start(0);
-                    return;
-                }
-
-                audio.pause();
-                audio.currentTime = 0;
-                const p = audio.play();
-                if (p && p.catch) {
-                    p.catch(err => {
-                        console.warn('Audio play rejected:', err);
-                        if (unlockBtn.style.display === 'none') {
-                            unlockBtn.style.display = 'inline-block';
-                            unlockBtn.textContent = 'Tap to enable sound';
-                        }
-                    });
-                }
+            // UPDATED: Contact Information
+            const contactInfo = {
+                phone: '(415) 877-0687',
+                email: 'thewebswann@gmail.com'
             };
 
-            // --- Your existing functions below ---
+            // Update footer contact info
+            document.querySelector('footer p').innerHTML = 
+                `📧 Email: ${contactInfo.email} | 📞 Phone: ${contactInfo.phone}`;
 
-            function createConfetti() {
-                const confetti = document.createElement('div');
-                confetti.classList.add('confetti');
-                confetti.style.left = `${Math.random() * 100}vw`;
-                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-                document.body.appendChild(confetti);
-
-                setTimeout(() => {
-                    confetti.remove();
-                }, 3000);
-            }
-
-            function triggerDemoAnimationAndRedirect() {
-                for (let i = 0; i < 50; i++) {
-                    createConfetti();
+            // Your existing thumbnail click functionality
+            videoThumbnails.addEventListener('click', (event) => {
+                const thumbnail = event.target.closest('.video-thumbnail');
+                if (thumbnail) {
+                    const videoId = thumbnail.dataset.videoId;
+                    videoIframe.src = `https://www.youtube.com/embed/${videoId}`;
                 }
+            });
 
-                setTimeout(() => {
-                    window.location.href = 'https://thewebswan.com';
-                }, 3000);
+            function loadYouTubeVideo(videoId) {
+                const newSrc = `https://www.youtube.com/embed/${videoId}`;
+                videoIframe.src = newSrc;
+                videoIframe.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Close modal when a video is loaded
+                closeModalFunc();
             }
 
-            // --- Your existing button listeners ---
+            // Modal Functions
+            function showModal(content) {
+                modalContent.innerHTML = content;
+                modal.style.display = 'block';
+            }
 
+            function closeModalFunc() {
+                modal.style.display = 'none';
+            }
+
+            // Event Listeners
+            closeModal.addEventListener('click', closeModalFunc);
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) closeModalFunc();
+            });
+
+            // UPDATED: Free Demo Button Click Handler with new code
             demoBtn.addEventListener('click', () => {
-                window.playBell();
-                triggerDemoAnimationAndRedirect();
+                // Play sound
+                bellSound.currentTime = 0;
+                bellSound.play().catch(e => console.log("Autoplay blocked:", e));
+
+                // Start bell animation
+                demoBtn.classList.add("ringing");
+
+                // Start confetti for 3s
+                const end = Date.now() + 3000;
+                (function frame() {
+                    confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 } });
+                    confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 } });
+                    if (Date.now() < end) requestAnimationFrame(frame);
+                }());
+
+                // Stop and redirect
+                setTimeout(() => {
+                    demoBtn.classList.remove("ringing");
+                    window.location.href = signupURL;
+                }, 3000);
             });
 
-            // Function to show modal and load content
-            const showModal = (htmlContent) => {
-                modalContentHtml.innerHTML = htmlContent;
-                videoModal.style.display = "block";
-            };
-
-            // Close modal button
-            closeBtn.addEventListener('click', () => {
-                videoModal.style.display = "none";
-                iframe.src = iframe.src; // Reloads the YouTube video
+            // UPDATED: Button click handlers with your actual links
+            document.getElementById('reviewsBtn').addEventListener('click', () => {
+                showModal(`
+                    <h3>⭐ Client Reviews</h3>
+                    <p>See what our clients are saying about The WebSwan:</p>
+                    <ul class="link-list">
+                        <li>🌟 <a href="https://www.yelp.com/biz/the-webswan-emeryville" target="_blank">Yelp Reviews</a></li>
+                        <li>🌟 <a href="https://www.google.com/maps/place/The+WebSwan/@32.352453,-173.8492288,3z/data=!4m10!1m2!2m1!1sreview+for+the+webswan!3m6!1s0xa2370697717bde97:0xe12746ae08472f10!8m2!3d32.352453!4d-100.0211038!15sChZyZXZpZXcgZm9yIHRoZSB3ZWJzd2FuIgI4AVoNIgt0aGUgd2Vic3dhbpIBEHdlYnNpdGVfZGVzaWduZXLgAQA!16s%2Fg%2F11w7l6dl3z?entry=ttu&g_ep=EgoyMDI1MDkyMi.0IKXMDSoASAFQAw%3D%3D" target="_blank">Google Reviews</a></li>
+                        <li>🌟 <a href="https://www.thewebswan.com/about-us" target="_blank">Additional Client Reviews</a></li>
+                    </ul>
+                `);
             });
 
-            // Click outside modal to close
-            window.addEventListener('click', (event) => {
-                if (event.target === videoModal) {
-                    videoModal.style.display = "none";
-                    iframe.src = iframe.src; // Reloads the YouTube video
-                }
+            document.getElementById('websiteGalleryBtn').addEventListener('click', () => {
+                showModal(`
+                    <h3>🖼️ Website Gallery</h3>
+                    <p>Explore our diverse portfolio of website designs:</p>
+                    <ul class="link-list">
+                        <li>🏥 <a href="https://ersnoeromomdmba2.taniadomingue.multisiteadmin.com/" target="_blank">Top Orthopedics & Brain Surgeons - Beverly Hills, CA</a></li>
+                        <li>💇‍♀️ <a href="https://www.handsofgoldafricanhairbraiding.com/" target="_blank">African Hair Braider - Dallas, TX</a></li>
+                        <li>🎨 <a href="https://colbertlartiste.taniadomingue.multisiteadmin.com/a/preview" target="_blank">Doctor/Artist Portfolio (Under Development)</a></li>
+                        <li>🚗 <a href="https://robustautodetailing.taniadomingue.multisiteadmin.com/" target="_blank">Car Wash - Oakland, CA</a></li>
+                        <li>📊 <a href="https://expresscapitalnetworkassociates.com/" target="_blank">Lead Generation Landing Page</a></li>
+                        <li>💰 <a href="https://www.expresscapassociates.com/" target="_blank">Merchant Cash Advance Business Funding</a></li>
+                    </ul>
+                `);
             });
 
-            // Function to load a specific YouTube video by ID
-            const loadYouTubeVideo = (videoId) => {
-                iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-                videoModal.style.display = "none";
-            };
+            document.getElementById('webApplicationsBtn').addEventListener('click', () => {
+                showModal(`
+                    <h3>⚡ Web Applications & Calendars</h3>
+                    <p>Custom web applications and scheduling solutions:</p>
+                    <ul class="link-list">
+                        <li>📅 <a href="https://taniad2169.github.io/Ek-s-Appointment-Calendar/" target="_blank">Barber Appointment Calendar</a></li>
+                        <li>🖼️ <a href="https://taniad2169.github.io/Ek-s-gallery/" target="_blank">Barber Portfolio Gallery</a></li>
+                        <li>📝 <a href="https://taniad2169.github.io/Express_online_application/" target="_blank">Merchant Cash Advance Application Form</a></li>
+                    </ul>
+                `);
+            });
+
+            document.getElementById('interactiveHubBtn').addEventListener('click', () => {
+                showModal(`
+                    <h3>🎯 Interactive Hub</h3>
+                    <p>Interactive brand showcases and business hubs:</p>
+                    <ul class="link-list">
+                        <li>🚀 <a href="https://taniad2169.github.io/Express-Capital-Automation/" target="_blank">Express Capital Associates Interactive Hub</a></li>
+                        <li>💼 <a href="#" target="_blank">Additional Interactive Hub (Coming Soon)</a></li>
+                    </ul>
+                `);
+            });
+
+            // NEW: SEO Tips Button
+            document.getElementById('seoTipsBtn').addEventListener('click', () => {
+                loadYouTubeVideo('63wUeBevFwY');
+            });
+
+            // NEW: Custom Web Design vs Template Websites Button
+            document.getElementById('webDesignVsTemplatesBtn').addEventListener('click', () => {
+                loadYouTubeVideo('OrtLBd7xFac');
+            });
+
+            // NEW: Reputation Management Button
+            document.getElementById('reputationManagementBtn').addEventListener('click', () => {
+                loadYouTubeVideo('5YvMyeFZGZA');
+            });
+
+            // UPDATED: Campaign Marketing Button - now includes all campaign marketing videos
+            document.getElementById('campaignMarketingBtn').addEventListener('click', () => {
+                showModal(`
+                    <h3>📢 Campaign Marketing Videos</h3>
+                    <p>Click on any video to play it:</p>
+                    <ul class="link-list">
+                        <li>📢 <a href="#" onclick="loadYouTubeVideo('UNFkK0XC6dA'); return false;">Campaign Marketing Introduction</a></li>
+                        <li>📢 <a href="#" onclick="loadYouTubeVideo('ZJ5lOQdbL3o'); return false;">Google Ad Campaign Tips</a></li>
+                        <li>📢 <a href="#" onclick="loadYouTubeVideo('eX1Q_5PMtp4'); return false;">Advanced Campaign Marketing</a></li>
+                        <li>📢 <a href="#" onclick="loadYouTubeVideo('g0PYayzh49k'); return false;">Google Ad Campaign Tips</a></li>
+                        <li>📢 <a href="#" onclick="loadYouTubeVideo('7UPFrt9z3_U'); return false;">Website Tips for Campaigns</a></li>
+                    </ul>
+                `);
+            });
+
+            // NEW: Website Tips Button - includes all website tips videos
+            document.getElementById('websiteTipsBtn').addEventListener('click', () => {
+                showModal(`
+                    <h3>🌐 Website Tips Videos</h3>
+                    <p>Click on any video to play it:</p>
+                    <ul class="link-list">
+                        <li>🌐 <a href="#" onclick="loadYouTubeVideo('AhrG8jgQn3E'); return false;">Website Tips Part 2</a></li>
+                        <li>🌐 <a href="#" onclick="loadYouTubeVideo('wRWmozD3wY4'); return false;">Website Tips Part 3</a></li>
+                        <li>🌐 <a href="#" onclick="loadYouTubeVideo('hbgLZLsLTpg'); return false;">Website Tips Part 4</a></li>
+                        <li>🌐 <a href="#" onclick="loadYouTubeVideo('zwuc3cc9cMw'); return false;">Website Tips Part 5</a></li>
+                        <li>🌐 <a href="#" onclick="loadYouTubeVideo('9l8cmDEQz1k'); return false;">Website Tips for Entrepreneurs</a></li>
+                        <li>🌐 <a href="#" onclick="loadYouTubeVideo('gqLRG8LjCjE'); return false;">Website Tips for SEO</a></li>
+                        <li>🌐 <a href="#" onclick="loadYouTubeVideo('Mot2WC3782Q'); return false;">Website Tips for Design</a></li>
+                    </ul>
+                `);
+            });
+
+            // NEW: Professionals Button - includes all professionals videos
+            document.getElementById('professionalsBtn').addEventListener('click', () => {
+                showModal(`
+                    <h3>👨‍⚕️👩‍💼 Professionals Videos</h3>
+                    <p>Click on any video to play it:</p>
+                    <ul class="link-list">
+                        <li>👨‍⚕️ <a href="#" onclick="loadYouTubeVideo('gyOnq1_hWdE'); return false;">Professionals Introduction</a></li>
+                        <li>👨‍⚕️ <a href="#" onclick="loadYouTubeVideo('YeD6xzy6TDQ'); return false;">The Best Website for Professionals</a></li>
+                    </ul>
+                `);
+            });
 
             // UPDATED: My Bio Button
             document.getElementById('myBioBtn').addEventListener('click', () => {
