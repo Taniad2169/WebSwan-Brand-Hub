@@ -248,6 +248,30 @@
             background: linear-gradient(to right, #ff5252, #ff7b7b);
         }
 
+        /* NEW: Book Appointment Button Styling */
+        .appointment-button {
+            display: inline-block;
+            background: linear-gradient(to right, #4CAF50, #45a049);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+            margin: 20px auto;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .appointment-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+            background: linear-gradient(to right, #45a049, #4CAF50);
+        }
+
         /* Bell animation (shake) */
         .ringing {
             animation: ring 0.3s linear infinite;
@@ -537,6 +561,13 @@
             z-index: 1;
         }
 
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: navy;
+            opacity: 0.8;
+        }
+
         .animated-emoji-container {
             position: absolute;
             bottom: 10px;
@@ -619,6 +650,10 @@
                 padding: 12px 25px;
                 font-size: 1.1em;
             }
+            .appointment-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
         }
     </style>
 </head>
@@ -646,6 +681,15 @@
             <p style="text-align: center; color: #1e4870; font-weight: bold;">click the screen twice to watch the video because they have to click watch video too please</p>
             <div class="video-container">
                 <iframe id="video-iframe" src="https://www.youtube.com/embed/TaHQkh5Y0sU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <!-- NEW: Book Appointment Button Section -->
+            <div style="text-align: center; margin: 30px 0;">
+                <p class="button-title-text">📅 Ready to Get Started? Book Your Free Demo Now! 📅</p>
+                <a href="https://taniad2169.github.io/Webswan-Booking-FREE-Website-Demo/" target="_blank" class="appointment-button">
+                    📋 Book an Appointment
+                </a>
+                <p style="color: #1e4870; font-weight: bold; margin-top: 10px;">Click above to schedule your free website demo consultation!</p>
             </div>
 
             <!-- NEW: Game Button Section -->
@@ -783,6 +827,9 @@
             <h3>Ready to Transform Your Online Presence?</h3>
             <p>Contact us today to discuss your web design and digital marketing needs.</p>
             <p>📧 Email: thewebswann@gmail.com | 📞 Phone: (415) 877-0687</p>
+            <div class="copyright">
+                © 2024 The WebSwan. All rights reserved.
+            </div>
         </div>
         <div class="animated-emoji-container">
             <span class="animated-emoji">💻</span>
@@ -884,15 +931,24 @@
                 }, 3000);
             });
 
-            // UPDATED: Button click handlers with your actual links
+            // UPDATED: Reviews Button with Industry Recognition Links
             document.getElementById('reviewsBtn').addEventListener('click', () => {
                 showModal(`
-                    <h3>⭐ Client Reviews</h3>
-                    <p>See what our clients are saying about The WebSwan:</p>
+                    <h3>⭐ Client Reviews & Recognition</h3>
+                    <p>See what our clients are saying about The WebSwan and our industry recognition:</p>
+                    
+                    <h4>Client Reviews</h4>
                     <ul class="link-list">
                         <li>🌟 <a href="https://www.yelp.com/biz/the-webswan-emeryville" target="_blank">Yelp Reviews</a></li>
                         <li>🌟 <a href="https://www.google.com/maps/place/The+WebSwan/@32.352453,-173.8492288,3z/data=!4m10!1m2!2m1!1sreview+for+the+webswan!3m6!1s0xa2370697717bde97:0xe12746ae08472f10!8m2!3d32.352453!4d-100.0211038!15sChZyZXZpZXcgZm9yIHRoZSB3ZWJzd2FuIgI4AVoNIgt0aGUgd2Vic3dhbpIBEHdlYnNpdGVfZGVzaWduZXLgAQA!16s%2Fg%2F11w7l6dl3z?entry=ttu&g_ep=EgoyMDI1MDkyMi.0IKXMDSoASAFQAw%3D%3D" target="_blank">Google Reviews</a></li>
                         <li>🌟 <a href="https://www.thewebswan.com/about-us" target="_blank">Additional Client Reviews</a></li>
+                    </ul>
+
+                    <h4>Industry Recognition</h4>
+                    <ul class="link-list">
+                        <li>🏆 <a href="https://www.google.com/search?q=nationwide+web+designer&rlz=1CAIPNW_enUS1176&oq=nationw&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIQCAEQLhjHARixAxjRAxiABDITCAIQLhjHARixAxjJAxjRAxiABDIGCAMQRRg5MgoIBBAAGLEDGIAEMgoIBRAAGLEDGIAEMgYIBhBFGD0yBggHEEUYPdIBCDEzODhqMGo0qAIDsAIB8QUd4UAKuDxs0vEFHeFACrg8bNI&sourceid=chrome&ie=UTF-8" target="_blank">Nationwide Web Designer</a></li>
+                        <li>🌟 <a href="https://www.google.com/search?q=top+web+designer+in+oakland+ca&rlz=1CAIPNW_enUS1176&oq=top+&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIGCAEQRRg5Mg0IAhAAGJECGIAEGIoFMg0IAxAAGJECGIAEGIoFMgwIBBAAGEMYgAQYigUyBggFEEUYPTIGCAYQRRg9MgYIBxBFGDzSAQgzMzMyajBqOagCBrACAfEF0tQc0FGVuK3xBdLUHNBRlbit&sourceid=chrome&ie=UTF-8" target="_blank">Top Web Designer Near Oakland, CA</a></li>
+                        <li>🚀 <a href="https://www.designrush.com/agency/website-design-development/california/oakland" target="_blank">Top 20 Web Designers on DesignRush</a></li>
                     </ul>
                 `);
             });
