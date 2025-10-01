@@ -678,12 +678,11 @@
     <main class="container">
         <section id="youtube-player" class="content-section">
             <h2>Our Videos</h2>
-            <p style="text-align: center; color: #1e4870; font-weight: bold;">click the screen twice to watch the video because they have to click watch video too please</p>
+            <p style="text-align: center; color: #1e4870; font-weight: bold;">c
             <div class="video-container">
                 <iframe id="video-iframe" src="https://www.youtube.com/embed/TaHQkh5Y0sU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
-            <!-- NEW: Book Appointment Button Section -->
             <div style="text-align: center; margin: 30px 0;">
                 <p class="button-title-text">📅 Ready to Get Started? Book Your Free Demo Now! 📅</p>
                 <a href="https://taniad2169.github.io/Webswan-Booking-FREE-Website-Demo/" target="_blank" class="appointment-button">
@@ -692,7 +691,6 @@
                 <p style="color: #1e4870; font-weight: bold; margin-top: 10px;">Click above to schedule your free website demo consultation!</p>
             </div>
 
-            <!-- NEW: Game Button Section -->
             <div style="text-align: center; margin: 30px 0;">
                 <p class="button-title-text">🎮 Play our fun game and win a prize! 🎮</p>
                 <a href="https://taniad2169.github.io/Web-Swan-Game/" target="_blank" class="game-button">
@@ -874,12 +872,13 @@
             document.querySelector('footer p').innerHTML = 
                 `📧 Email: ${contactInfo.email} | 📞 Phone: ${contactInfo.phone}`;
 
-            // Your existing thumbnail click functionality
+            // Your existing thumbnail click functionality - FIX APPLIED HERE
             videoThumbnails.addEventListener('click', (event) => {
                 const thumbnail = event.target.closest('.video-thumbnail');
                 if (thumbnail) {
                     const videoId = thumbnail.dataset.videoId;
-                    videoIframe.src = `https://www.youtube.com/embed/${videoId}`;
+                    // FIX: Call the loadYouTubeVideo function to ensure scrolling and modal closing behavior is consistent
+                    loadYouTubeVideo(videoId); 
                 }
             });
 
