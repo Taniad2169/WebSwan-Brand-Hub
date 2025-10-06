@@ -55,6 +55,24 @@
             margin-top: 10px;
         }
 
+        /* NEW: Ringing phone animation styles */
+        .ringing-phone {
+            font-size: 2.5em;
+            display: inline-block;
+            margin-left: 10px;
+            animation: ring 0.7s infinite;
+        }
+
+        @keyframes ring {
+            0% { transform: rotate(0); }
+            10% { transform: rotate(10deg); }
+            20% { transform: rotate(-10deg); }
+            30% { transform: rotate(10deg); }
+            40% { transform: rotate(-10deg); }
+            50% { transform: rotate(0); }
+            100% { transform: rotate(0); }
+        }
+
         .header-emoji-container {
             position: absolute;
             top: 0;
@@ -224,11 +242,11 @@
             margin: 20px auto; /* To center the button */
         }
 
-        /* NEW: Game button styling */
+        /* MODIFIED: Game button styling to new brand gradient and white font */
         .game-button {
             display: inline-block;
-            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
-            color: white;
+            background: linear-gradient(to right, #84cdcf, #73b1c7); /* Changed from red */
+            color: white; /* Changed from red to white */
             padding: 15px 30px;
             border-radius: 30px;
             text-decoration: none;
@@ -236,7 +254,7 @@
             font-size: 1.2em;
             text-align: center;
             margin: 20px auto;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            box-shadow: 0 4px 15px rgba(132, 205, 207, 0.5); /* Updated shadow based on new color */
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
@@ -244,15 +262,15 @@
 
         .game-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
-            background: linear-gradient(to right, #ff5252, #ff7b7b);
+            box-shadow: 0 6px 20px rgba(115, 177, 199, 0.6); /* Updated hover shadow */
+            background: linear-gradient(to right, #73b1c7, #84cdcf); /* Reverse gradient for hover */
         }
 
-        /* NEW: Book Appointment Button Styling */
+        /* MODIFIED: Book Appointment Button Styling to new brand gradient and white font */
         .appointment-button {
             display: inline-block;
-            background: linear-gradient(to right, #4CAF50, #45a049);
-            color: white;
+            background: linear-gradient(to right, #84cdcf, #73b1c7); /* Changed from green */
+            color: white; /* Set to white */
             padding: 15px 30px;
             border-radius: 30px;
             text-decoration: none;
@@ -260,7 +278,7 @@
             font-size: 1.2em;
             text-align: center;
             margin: 20px auto;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            box-shadow: 0 4px 15px rgba(132, 205, 207, 0.5); /* Updated shadow based on new color */
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
@@ -268,8 +286,32 @@
 
         .appointment-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-            background: linear-gradient(to right, #45a049, #4CAF50);
+            box-shadow: 0 6px 20px rgba(115, 177, 199, 0.6); /* Updated hover shadow */
+            background: linear-gradient(to right, #73b1c7, #84cdcf); /* Reverse gradient for hover */
+        }
+
+        /* MODIFIED: Visit Websites Button Styling to new font color */
+        .website-button {
+            display: inline-block;
+            background: linear-gradient(to right, #2cd0e6, #58e8d7);
+            color: #14395d; /* New font color: #14395d */
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+            margin: 20px auto;
+            box-shadow: 0 4px 15px rgba(44, 208, 230, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .website-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(44, 208, 230, 0.4);
+            background: linear-gradient(to right, #1a9fb2, #47d6c5);
         }
 
         /* Bell animation (shake) */
@@ -654,6 +696,10 @@
                 padding: 12px 25px;
                 font-size: 1.1em;
             }
+            .website-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
         }
     </style>
 </head>
@@ -672,7 +718,11 @@
         </div>
         <h1>The WebSwan</h1>
         <p>Your Path to a Stronger Online Presence</p>
-        <p class="header-title-text">ready to take your business to the next level ? click the lock to unlock your free demo!</p>
+        <p class="header-title-text">
+            ready to take your business to the next level? give us a call or text at 
+            <a href="tel:+14158770687" style="color: navy; text-decoration: none;">(415)877-0687</a> 
+            <span class="ringing-phone" aria-label="Ringing Phone">☎</span>
+        </p>
     </header>
 
     <main class="container">
@@ -680,7 +730,14 @@
             <h2>Our Videos</h2>
             <p style="text-align: center; color: #1e4870; font-weight: bold;">c
             <div class="video-container">
-                <iframe id="video-iframe" src="https://www.youtube.com/embed/TaHQkh5Y0sU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe id="video-iframe" src="https://www.youtube.com/embed/TaHQkh5Y0sU?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <p class="button-title-text">🔗 Explore Our Main Websites 🔗</p>
+                <a href="https://www.thewebswan.com" target="_blank" class="website-button">
+                    🌐 Website </a>
+                <p style="color: #1e4870; font-weight: bold; margin-top: 10px;">The WebSwan</p>
             </div>
 
             <div style="text-align: center; margin: 30px 0;">
@@ -702,7 +759,7 @@
             <p class="button-title-text">ready to take your business to the next level ? click the bell to unlock your free demo!</p>
             <button id="demoBtn">🔔</button>
             <canvas id="confetti-canvas"></canvas>
-            <audio id="bellSound" src="mixkit-happy-bells-notification-937.mp3" preload="auto"></audio>
+            <audio id="bellSound" src="https://assets.mixkit.co/sfx/preview/mixkit-happy-bells-notification-937.mp3" preload="auto"></audio>
 
             <div class="quick-search">
                 <button id="reviewsBtn">⭐ Reviews</button>
@@ -851,6 +908,7 @@
             // YouTube API Key (moved inside to avoid redeclaration)
             const API_KEY = 'AIzaSyBQg_cE8BfYtln4U4saDN0_m3obwe9oIWo';
 
+            const youtubePlayerSection = document.getElementById('youtube-player'); // Get the section to scroll to
             const videoIframe = document.getElementById('video-iframe');
             const videoThumbnails = document.getElementById('video-thumbnails');
             const modal = document.getElementById('linksModal');
@@ -872,23 +930,31 @@
             document.querySelector('footer p').innerHTML = 
                 `📧 Email: ${contactInfo.email} | 📞 Phone: ${contactInfo.phone}`;
 
-            // Your existing thumbnail click functionality - FIX APPLIED HERE
+            // --- NEW/MODIFIED: loadYouTubeVideo function to include smooth scroll and autoplay ---
+            function loadYouTubeVideo(videoId) {
+                // Add autoplay=1 to the URL to try and force immediate playback
+                // The 'autoplay' attribute is also added to the iframe in HTML.
+                const newSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                videoIframe.src = newSrc;
+                
+                // NEW: Smooth scroll to the YouTube player section
+                youtubePlayerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                // Close modal when a video is loaded (if it was opened via modal link)
+                closeModalFunc();
+            }
+
+            // Your existing thumbnail click functionality - MODIFIED to use loadYouTubeVideo
             videoThumbnails.addEventListener('click', (event) => {
                 const thumbnail = event.target.closest('.video-thumbnail');
                 if (thumbnail) {
                     const videoId = thumbnail.dataset.videoId;
-                    // FIX: Call the loadYouTubeVideo function to ensure scrolling and modal closing behavior is consistent
-                    loadYouTubeVideo(videoId); 
+                    // Check for multiple video IDs for the initial video to ensure it loads
+                    if (videoId) {
+                        loadYouTubeVideo(videoId);
+                    }
                 }
             });
-
-            function loadYouTubeVideo(videoId) {
-                const newSrc = `https://www.youtube.com/embed/${videoId}`;
-                videoIframe.src = newSrc;
-                videoIframe.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                // Close modal when a video is loaded
-                closeModalFunc();
-            }
 
             // Modal Functions
             function showModal(content) {
@@ -906,11 +972,12 @@
                 if (e.target === modal) closeModalFunc();
             });
 
-            // UPDATED: Free Demo Button Click Handler with new code
+            // UPDATED: Free Demo Button Click Handler with existing logic
             demoBtn.addEventListener('click', () => {
-                // Play sound
+                // Play sound (using the new public URL)
                 bellSound.currentTime = 0;
-                bellSound.play().catch(e => console.log("Autoplay blocked:", e));
+                // Use a try-catch for play() as it can be blocked by browsers
+                bellSound.play().catch(e => console.log("Audio play failed, likely autoplay blocked:", e));
 
                 // Start bell animation
                 demoBtn.classList.add("ringing");
@@ -930,7 +997,8 @@
                 }, 3000);
             });
 
-            // UPDATED: Reviews Button with Industry Recognition Links
+            // --- Quick Search Button Handlers (MODIFIED to call loadYouTubeVideo which handles scroll) ---
+
             document.getElementById('reviewsBtn').addEventListener('click', () => {
                 showModal(`
                     <h3>⭐ Client Reviews & Recognition</h3>
@@ -945,8 +1013,8 @@
 
                     <h4>Industry Recognition</h4>
                     <ul class="link-list">
-                        <li>🏆 <a href="https://www.google.com/search?q=nationwide+web+designer&rlz=1CAIPNW_enUS1176&oq=nationw&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIQCAEQLhjHARixAxjRAxiABDITCAIQLhjHARixAxjJAxjRAxiABDIGCAMQRRg5MgoIBBAAGLEDGIAEMgoIBRAAGLEDGIAEMgYIBhBFGD0yBggHEEUYPdIBCDEzODhqMGo0qAIDsAIB8QUd4UAKuDxs0vEFHeFACrg8bNI&sourceid=chrome&ie=UTF-8" target="_blank">Nationwide Web Designer</a></li>
-                        <li>🌟 <a href="https://www.google.com/search?q=top+web+designer+in+oakland+ca&rlz=1CAIPNW_enUS1176&oq=top+&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIGCAEQRRg5Mg0IAhAAGJECGIAEGIoFMg0IAxAAGJECGIAEGIoFMgwIBBAAGEMYgAQYigUyBggFEEUYPTIGCAYQRRg9MgYIBxBFGDzSAQgzMzMyajBqOagCBrACAfEF0tQc0FGVuK3xBdLUHNBRlbit&sourceid=chrome&ie=UTF-8" target="_blank">Top Web Designer Near Oakland, CA</a></li>
+                        <li>🏆 <a href="https://www.google.com/search?q=nationwide+web+designer&rlz=1CAIPNW_enUS1176&oq=nationw&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIQCAEQLhjHARixAxjRAxiABDITCAIQLhjHARixAxjJAxjRAxiABDIGCAMQRRg5MgoIBBAAGLEDGIAEMgoIBRAAGLEDGIAEMgYIBhBFGD0yBggHEEUYPdIBCDEzODhqMGo0qAIDsAIB8QUd4UAKuDxs0vEFHeFACrg8bNI&sourceid=chrome&ie=UTF8" target="_blank">Nationwide Web Designer</a></li>
+                        <li>🌟 <a href="https://www.google.com/search?q=top+web+designer+in+oakland+ca&rlz=1CAIPNW_enUS1176&oq=top+&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIGCAEQRRg5Mg0IAhAAGJECGIAEGIoFMg0IAxAAGJECGIAEGIoFMgwIBBAAGEMYgAQYigUyBggFEEUYPTIGCAYQRRg9MgYIBxBFGDzSAQgzMzMyajBqOagCBrACAfEF0tQc0FGVuK3xBdLUHNBRlbit&sourceid=chrome&ie=UTF8" target="_blank">Top Web Designer Near Oakland, CA</a></li>
                         <li>🚀 <a href="https://www.designrush.com/agency/website-design-development/california/oakland" target="_blank">Top 20 Web Designers on DesignRush</a></li>
                     </ul>
                 `);
@@ -991,22 +1059,18 @@
                 `);
             });
 
-            // NEW: SEO Tips Button
             document.getElementById('seoTipsBtn').addEventListener('click', () => {
                 loadYouTubeVideo('63wUeBevFwY');
             });
 
-            // NEW: Custom Web Design vs Template Websites Button
             document.getElementById('webDesignVsTemplatesBtn').addEventListener('click', () => {
                 loadYouTubeVideo('OrtLBd7xFac');
             });
 
-            // NEW: Reputation Management Button
             document.getElementById('reputationManagementBtn').addEventListener('click', () => {
                 loadYouTubeVideo('5YvMyeFZGZA');
             });
 
-            // UPDATED: Campaign Marketing Button - now includes all campaign marketing videos
             document.getElementById('campaignMarketingBtn').addEventListener('click', () => {
                 showModal(`
                     <h3>📢 Campaign Marketing Videos</h3>
@@ -1021,7 +1085,6 @@
                 `);
             });
 
-            // NEW: Website Tips Button - includes all website tips videos
             document.getElementById('websiteTipsBtn').addEventListener('click', () => {
                 showModal(`
                     <h3>🌐 Website Tips Videos</h3>
@@ -1038,7 +1101,6 @@
                 `);
             });
 
-            // NEW: Professionals Button - includes all professionals videos
             document.getElementById('professionalsBtn').addEventListener('click', () => {
                 showModal(`
                     <h3>👨‍⚕️👩‍💼 Professionals Videos</h3>
@@ -1050,7 +1112,6 @@
                 `);
             });
 
-            // UPDATED: My Bio Button
             document.getElementById('myBioBtn').addEventListener('click', () => {
                 showModal(`
                     <h3>👤 My Bio Videos</h3>
@@ -1062,7 +1123,6 @@
                 `);
             });
 
-            // NEW: Restaurant/Barber Button
             document.getElementById('restaurantBarberBtn').addEventListener('click', () => {
                 showModal(`
                     <h3>🍔✂️ Restaurant & Barber Videos</h3>
