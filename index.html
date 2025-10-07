@@ -290,6 +290,30 @@
             background: linear-gradient(to right, #73b1c7, #84cdcf); /* Reverse gradient for hover */
         }
 
+        /* NEW: Website Analysis Button Styling */
+        .analysis-button {
+            display: inline-block;
+            background: linear-gradient(to right, #84cdcf, #73b1c7);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+            margin: 20px auto;
+            box-shadow: 0 4px 15px rgba(132, 205, 207, 0.5);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .analysis-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(115, 177, 199, 0.6);
+            background: linear-gradient(to right, #73b1c7, #84cdcf);
+        }
+
         /* MODIFIED: Visit Websites Button Styling to new font color */
         .website-button {
             display: inline-block;
@@ -700,6 +724,10 @@
                 padding: 12px 25px;
                 font-size: 1.1em;
             }
+            .analysis-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
         }
     </style>
 </head>
@@ -728,9 +756,10 @@
     <main class="container">
         <section id="youtube-player" class="content-section">
             <h2>Our Videos</h2>
-            <p style="text-align: center; color: #1e4870; font-weight: bold;">c
+            <p style="text-align: center; color: #1e4870; font-weight: bold;">Click on any video thumbnail below to load it in the player</p>
             <div class="video-container">
-                <iframe id="video-iframe" src="https://www.youtube.com/embed/TaHQkh5Y0sU?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- REMOVED: autoplay=1 from the iframe src -->
+                <iframe id="video-iframe" src="https://www.youtube.com/embed/TaHQkh5Y0sU" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
             <div style="text-align: center; margin: 30px 0;">
@@ -756,6 +785,15 @@
                 <p style="color: #1e4870; font-weight: bold; margin-top: 10px;">Click the button above to play our exciting game and have a chance to win!</p>
             </div>
 
+            <!-- NEW: Free Website Analysis Button -->
+            <div style="text-align: center; margin: 30px 0;">
+                <p class="button-title-text">🔍 Get Your Free Website Analysis! 🔍</p>
+                <a href="https://taniad2169.github.io/WebSwan-Web-Analysis/" target="_blank" class="analysis-button">
+                    📊 Free Website Analysis
+                </a>
+                <p style="color: #1e4870; font-weight: bold; margin-top: 10px;">Click above to get a comprehensive analysis of your website!</p>
+            </div>
+
             <p class="button-title-text">ready to take your business to the next level ? click the bell to unlock your free demo!</p>
             <button id="demoBtn">🔔</button>
             <canvas id="confetti-canvas"></canvas>
@@ -774,7 +812,7 @@
                 <button id="professionalsBtn">👨‍⚕️👩‍💼 Professionals</button>
                 <button id="myBioBtn">👤 My Bio</button>
                 <button id="restaurantBarberBtn">🍔✂️ Restaurant/Barber</button>
-            </div>
+                <button id="socialMediaBtn">📱 Social Media</button> </div>
 
             <div class="video-thumbnails" id="video-thumbnails">
                 <div class="video-thumbnail" data-video-id="TaHQkh5Y0sU">
@@ -930,11 +968,10 @@
             document.querySelector('footer p').innerHTML = 
                 `📧 Email: ${contactInfo.email} | 📞 Phone: ${contactInfo.phone}`;
 
-            // --- NEW/MODIFIED: loadYouTubeVideo function to include smooth scroll and autoplay ---
+            // --- MODIFIED: loadYouTubeVideo function to REMOVE autoplay ---
             function loadYouTubeVideo(videoId) {
-                // Add autoplay=1 to the URL to try and force immediate playback
-                // The 'autoplay' attribute is also added to the iframe in HTML.
-                const newSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                // REMOVED: autoplay=1 from the URL
+                const newSrc = `https://www.youtube.com/embed/${videoId}`;
                 videoIframe.src = newSrc;
                 
                 // NEW: Smooth scroll to the YouTube player section
@@ -1014,7 +1051,7 @@
                     <h4>Industry Recognition</h4>
                     <ul class="link-list">
                         <li>🏆 <a href="https://www.google.com/search?q=nationwide+web+designer&rlz=1CAIPNW_enUS1176&oq=nationw&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIQCAEQLhjHARixAxjRAxiABDITCAIQLhjHARixAxjJAxjRAxiABDIGCAMQRRg5MgoIBBAAGLEDGIAEMgoIBRAAGLEDGIAEMgYIBhBFGD0yBggHEEUYPdIBCDEzODhqMGo0qAIDsAIB8QUd4UAKuDxs0vEFHeFACrg8bNI&sourceid=chrome&ie=UTF8" target="_blank">Nationwide Web Designer</a></li>
-                        <li>🌟 <a href="https://www.google.com/search?q=top+web+designer+in+oakland+ca&rlz=1CAIPNW_enUS1176&oq=top+&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIGCAEQRRg5Mg0IAhAAGJECGIAEGIoFMg0IAxAAGJECGIAEGIoFMgwIBBAAGEMYgAQYigUyBggFEEUYPTIGCAYQRRg9MgYIBxBFGDzSAQgzMzMyajBqOagCBrACAfEF0tQc0FGVuK3xBdLUHNBRlbit&sourceid=chrome&ie=UTF8" target="_blank">Top Web Designer Near Oakland, CA</a></li>
+                        <li>🌟 <a href="https://www.google.com/search?q=top+web+designer+in+oakland+ca&rlz=1CAIPNW_enUS1176&oq=top+&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIGCAEQRRg5Mg0IAhAAGJECGIAEGIoFMg0IAxAAGJECGIAEGIoFMgwIBBAAGEMYgAQYigUyBggFEEUYPTIGCAYQRRg9MgYIBxBFGDzSAQgzMzMyajBqOagCBrACAfEF0tUc0FGVuK3xBdLUHNBRlbit&sourceid=chrome&ie=UTF8" target="_blank">Top Web Designer Near Oakland, CA</a></li>
                         <li>🚀 <a href="https://www.designrush.com/agency/website-design-development/california/oakland" target="_blank">Top 20 Web Designers on DesignRush</a></li>
                     </ul>
                 `);
@@ -1130,6 +1167,21 @@
                     <ul class="link-list">
                         <li>🍔 <a href="#" onclick="loadYouTubeVideo('Xwd9ORiyz8c'); return false;">Website for Restaurant Owners</a></li>
                         <li>✂️ <a href="#" onclick="loadYouTubeVideo('0aGXbjSZ8KA'); return false;">Website for Barbers and Hairstylists</a></li>
+                    </ul>
+                `);
+            });
+            
+            // NEW: Social Media Button Handler
+            document.getElementById('socialMediaBtn').addEventListener('click', () => {
+                showModal(`
+                    <h3>📱 Connect with The WebSwan</h3>
+                    <p>Follow us on our social channels!</p>
+                    <ul class="link-list">
+                        <li>📘 <a href="https://www.facebook.com/profile.php?id=61564322427695" target="_blank">Facebook</a></li>
+                        <li>👔 <a href="https://www.linkedin.com/in/tania-domingue-882a68282/" target="_blank">LinkedIn</a></li>
+                        <li>🎵 <a href="https://www.tiktok.com/@user1615348297322" target="_blank">TikTok</a></li>
+                        <li>📸 <a href="https://www.instagram.com/motivationalll_speaker/" target="_blank">Instagram</a></li>
+                        <li>🤝 <a href="https://www.alignable.com/oakland-ca/the-webswan-web-design-consultant-effective-seo-content-writer-certified" target="_blank">Alignable</a></li>
                     </ul>
                 `);
             });
