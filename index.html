@@ -85,86 +85,83 @@
         .header-emoji {
             font-size: 2em;
             position: absolute;
-            animation-duration: 10s;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
             opacity: 0;
         }
 
-        /* UPDATED: New emoji animation - coming closer and getting bigger */
+        /* UPDATED: Sequential emoji animation - each emoji comes one after another */
         .laptop-emoji {
             top: 10%;
             left: -10%;
-            animation-name: flyInCloser;
+            animation: flyInCloser 3s forwards;
             animation-delay: 0s;
         }
 
         .lightbulb-emoji {
             top: 25%;
             left: -10%;
-            animation-name: flyInCloser;
-            animation-delay: 1.5s;
+            animation: flyInCloser 3s forwards;
+            animation-delay: 3s;
         }
 
         .target-emoji {
             top: 40%;
             left: -10%;
-            animation-name: flyInCloser;
-            animation-delay: 3s;
+            animation: flyInCloser 3s forwards;
+            animation-delay: 6s;
         }
 
         .bell-emoji {
             top: 55%;
             left: -10%;
-            animation-name: flyInCloser;
-            animation-delay: 4.5s;
+            animation: flyInCloser 3s forwards;
+            animation-delay: 9s;
         }
 
         .key-emoji {
             top: 70%;
             left: -10%;
-            animation-name: flyInCloser;
-            animation-delay: 6s;
+            animation: flyInCloser 3s forwards;
+            animation-delay: 12s;
         }
 
         .money-emoji {
             top: 85%;
             left: -10%;
-            animation-name: flyInCloser;
-            animation-delay: 7.5s;
+            animation: flyInCloser 3s forwards;
+            animation-delay: 15s;
         }
         
         .wifi-emoji {
             top: 5%;
             left: -10%;
-            animation-name: flyInCloser;
-            animation-delay: 9s;
+            animation: flyInCloser 3s forwards;
+            animation-delay: 18s;
         }
         
         .globe-emoji {
             top: 90%;
             left: -10%;
-            animation-name: flyInCloser;
-            animation-delay: 10.5s;
+            animation: flyInCloser 3s forwards;
+            animation-delay: 21s;
         }
 
         @keyframes flyInCloser {
             0% {
-                transform: translateX(0) translateZ(0) scale(1);
+                transform: translateX(0) scale(0.5);
                 opacity: 0;
             }
-            10% {
+            20% {
                 opacity: 1;
             }
             50% {
-                transform: translateX(50vw) translateZ(200px) scale(2);
+                transform: translateX(50vw) scale(2);
                 opacity: 1;
             }
-            90% {
+            80% {
                 opacity: 1;
             }
             100% {
-                transform: translateX(120vw) translateZ(0) scale(1);
+                transform: translateX(120vw) scale(0.5);
                 opacity: 0;
             }
         }
@@ -812,7 +809,10 @@
                 <button id="professionalsBtn">👨‍⚕️👩‍💼 Professionals</button>
                 <button id="myBioBtn">👤 My Bio</button>
                 <button id="restaurantBarberBtn">🍔✂️ Restaurant/Barber</button>
-                <button id="socialMediaBtn">📱 Social Media</button> </div>
+                <button id="socialMediaBtn">📱 Social Media</button>
+                <!-- NEW: Understand Your Website Button -->
+                <button id="understandWebsiteBtn">🔍 Understand Your Website</button>
+            </div>
 
             <div class="video-thumbnails" id="video-thumbnails">
                 <div class="video-thumbnail" data-video-id="TaHQkh5Y0sU">
@@ -909,285 +909,341 @@
                 </a>
                 <br>
                 <a href="https://taniad2169.github.io/WebSwan-Market-Research-Online-/" target="_blank" class="survey-button">
-                    🎯 click here to participate in our small survey to better understand your web design and digital needs
+                    🎯 click here to participate in our small survey to better understand your web design and digital marketing needs
                 </a>
             </div>
         </section>
     </main>
 
+    <!-- MODALS FOR QUICK SEARCH BUTTONS -->
+    <!-- Reviews Modal -->
+    <div id="reviewsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>⭐ Reviews</h2>
+            <ul class="link-list">
+                <li><a href="https://youtu.be/TaHQkh5Y0sU" target="_blank">Video 1: The WebSwan Reviews</a></li>
+                <li><a href="https://youtu.be/63wUeBevFwY" target="_blank">Video 2: Client Testimonials</a></li>
+                <li><a href="https://youtu.be/YeD6xzy6TDQ" target="_blank">Video 3: Customer Feedback</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Website Gallery Modal -->
+    <div id="websiteGalleryModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>🖼️ Website Gallery</h2>
+            <ul class="link-list">
+                <li><a href="https://youtu.be/AFhPcpGo3bQ" target="_blank">Video 1: Website Portfolio Showcase</a></li>
+                <li><a href="https://youtu.be/_S4m8bY5JWM" target="_blank">Video 2: Design Gallery</a></li>
+                <li><a href="https://youtu.be/5YvMyeFZGZA" target="_blank">Video 3: Recent Projects</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Web Applications Modal -->
+    <div id="webApplicationsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>⚡ Web Applications</h2>
+            <ul class="link-list">
+                <li><a href="https://youtu.be/5YvMyeFZGZA" target="_blank">Video 1: Custom Web Apps</a></li>
+                <li><a href="https://youtu.be/AFhPcpGo3bQ" target="_blank">Video 2: Application Development</a></li>
+                <li><a href="https://youtu.be/_S4m8bY5JWM" target="_blank">Video 3: Interactive Features</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Interactive Hub Modal -->
+    <div id="interactiveHubModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>🎯 Interactive Hub</h2>
+            <ul class="link-list">
+                <li><a href="https://youtu.be/TaHQkh5Y0sU" target="_blank">Video 1: Interactive Features</a></li>
+                <li><a href="https://youtu.be/63wUeBevFwY" target="_blank">Video 2: User Engagement Tools</a></li>
+                <li><a href="https://youtu.be/YeD6xzy6TDQ" target="_blank">Video 3: Interactive Demos</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SEO Tips Modal -->
+    <div id="seoTipsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>🔍 SEO Tips</h2>
+            <ul class="link-list">
+                <li><a href="https://youtu.be/AFhPcpGo3bQ" target="_blank">Video 1: SEO Basics</a></li>
+                <li><a href="https://youtu.be/_S4m8bY5JWM" target="_blank">Video 2: Advanced SEO Strategies</a></li>
+                <li><a href="https://youtu.be/5YvMyeFZGZA" target="_blank">Video 3: SEO Best Practices</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Web Design vs Templates Modal -->
+    <div id="webDesignVsTemplatesModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>🎨 Custom Web Design vs Template Websites</h2>
+            <ul class="link-list">
+                <li><a href="https://youtu.be/OrtLBd7xFac" target="_blank">Video 1: Custom vs Template Websites</a></li>
+                <li><a href="https://youtu.be/UNFkK0XC6dA" target="_blank">Video 2: Pros and Cons</a></li>
+                <li><a href="https://youtu.be/7UPFrt9z3_U" target="_blank">Video 3: Making the Right Choice</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Reputation Management Modal -->
+    <div id="reputationManagementModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>⭐ Reputation Management</h2>
+            <ul class="link-list">
+                <li><a href="https://youtu.be/AhrG8jgQn3E" target="_blank">Video 1: Online Reputation Management</a></li>
+                <li><a href="https://youtu.be/fIGlhDOziow" target="_blank">Video 2: Building Your Brand</a></li>
+                <li><a href="https://youtu.be/wRWmozD3wY4" target="_blank">Video 3: Managing Reviews</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Campaign Marketing Modal -->
+    <div id="campaignMarketingModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>📢 Campaign Marketing</h2>
+            <ul class="link-list">
+                <li><a href="https://youtu.be/hbgLZLsLTpg" target="_blank">Video 1: Marketing Campaigns</a></li>
+                <li><a href="https://youtu.be/zwuc3cc9cMw" target="_blank">Video 2: Digital Advertising</a></li>
+                <li><a href="https://youtu.be/nKuJo4ISGX4" target="_blank">Video 3: Campaign Strategies</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Website Tips Modal -->
+    <div id="websiteTipsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>🌐 Website Tips</h2>
+            <ul class="link-list">
+                <li><a href="https://youtu.be/eX1Q_5PMtp4" target="_blank">Video 1: Website Optimization</a></li>
+                <li><a href="https://youtu.be/gyOnq1_hWdE" target="_blank">Video 2: User Experience Tips</a></li>
+                <li><a href="https://youtu.be/9l8cmDEQz1k" target="_blank">Video 3: Website Maintenance</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Professionals Modal -->
+    <div id="professionalsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>👨‍⚕️👩‍💼 Professionals</h2>
+            <ul class="link-list">
+                <li><a href="https://youtu.be/YeD6xzy6TDQ" target="_blank">Video 1: Websites for Professionals</a></li>
+                <li><a href="https://youtu.be/g0PYayzh49k" target="_blank">Video 2: Professional Branding</a></li>
+                <li><a href="https://youtu.be/gqLRG8LjCjE" target="_blank">Video 3: Client Portals</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- My Bio Modal -->
+    <div id="myBioModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>👤 My Bio</h2>
+            <ul class="link-list">
+                <li><a href="https://youtu.be/sobmvBObvb8" target="_blank">Video 1: About Me</a></li>
+                <li><a href="https://youtu.be/Mot2WC3782Q" target="_blank">Video 2: My Journey</a></li>
+                <li><a href="https://youtu.be/Xwd9ORiyz8c" target="_blank">Video 3: My Philosophy</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Restaurant/Barber Modal -->
+    <div id="restaurantBarberModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>🍔✂️ Restaurant/Barber</h2>
+            <ul class="link-list">
+                <li><a href="https://youtu.be/0aGXbjSZ8KA" target="_blank">Video 1: Websites for Restaurants</a></li>
+                <li><a href="https://youtu.be/Xwd9ORiyz8c" target="_blank">Video 2: Websites for Barbers</a></li>
+                <li><a href="https://youtu.be/0aGXbjSZ8KA" target="_blank">Video 3: Service Industry Websites</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Social Media Modal -->
+    <div id="socialMediaModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>📱 Social Media</h2>
+            <ul class="link-list">
+                <li><a href="https://youtu.be/TaHQkh5Y0sU" target="_blank">Video 1: Social Media Integration</a></li>
+                <li><a href="https://youtu.be/63wUeBevFwY" target="_blank">Video 2: Social Media Marketing</a></li>
+                <li><a href="https://youtu.be/YeD6xzy6TDQ" target="_blank">Video 3: Building Social Presence</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- NEW: Understand Your Website Modal -->
+    <div id="understandWebsiteModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>🔍 Understand Your Website</h2>
+            <ul class="link-list">
+                <!-- ADDED: Website Analysis Overview link above the Free Website Analysis link -->
+                <li><a href="https://taniad2169.github.io/WebSwan-Analysis-Overview/" target="_blank">Website Analysis Overview</a></li>
+                <li><a href="https://taniad2169.github.io/WebSwan-Web-Analysis/" target="_blank">Free Website Analysis</a></li>
+            </ul>
+        </div>
+    </div>
+
     <footer>
         <div class="footer-content">
-            <h3>Ready to Transform Your Online Presence?</h3>
-            <p>Contact us today to discuss your web design and digital marketing needs.</p>
-            <p>📧 Email: thewebswann@gmail.com | 📞 Phone: (415) 877-0687</p>
-            <div class="copyright">
-                © 2024 The WebSwan. All rights reserved.
-            </div>
+            <h3>Contact Us</h3>
+            <p>Phone: <a href="tel:+14158770687" style="color: navy; text-decoration: none;">(415)877-0687</a></p>
+            <p>Email: <a href="mailto:thewebswan@gmail.com" style="color: navy; text-decoration: none;">thewebswan@gmail.com</a></p>
+            <p>Website: <a href="https://www.thewebswan.com" target="_blank" style="color: navy; text-decoration: none;">www.thewebswan.com</a></p>
+            <p class="copyright">© 2023 The WebSwan. All rights reserved.</p>
         </div>
         <div class="animated-emoji-container">
             <span class="animated-emoji">💻</span>
             <span class="animated-emoji">💡</span>
-            <span class="animated-emoji">💰</span>
-            <span class="animated-emoji">💻</span>
-            <span class="animated-emoji">😀</span>
+            <span class="animated-emoji">🎯</span>
+            <span class="animated-emoji">🔔</span>
+            <span class="animated-emoji">🔑</span>
         </div>
     </footer>
 
-    <div id="linksModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">×</span>
-            <div id="modalContent"></div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // YouTube API Key (moved inside to avoid redeclaration)
-            const API_KEY = 'AIzaSyBQg_cE8BfYtln4U4saDN0_m3obwe9oIWo';
+        // Video thumbnail click functionality
+        document.querySelectorAll('.video-thumbnail').forEach(thumbnail => {
+            thumbnail.addEventListener('click', function() {
+                const videoId = this.getAttribute('data-video-id');
+                const iframe = document.getElementById('video-iframe');
+                iframe.src = `https://www.youtube.com/embed/${videoId}`;
+            });
+        });
 
-            const youtubePlayerSection = document.getElementById('youtube-player'); // Get the section to scroll to
-            const videoIframe = document.getElementById('video-iframe');
-            const videoThumbnails = document.getElementById('video-thumbnails');
-            const modal = document.getElementById('linksModal');
-            const modalContent = document.getElementById('modalContent');
-            const closeModal = document.querySelector('.close-modal');
+        // Bell button animation and confetti
+        const demoBtn = document.getElementById('demoBtn');
+        const bellSound = document.getElementById('bellSound');
+        const confettiCanvas = document.getElementById('confetti-canvas');
+        const ctx = confettiCanvas.getContext('2d');
+        confettiCanvas.width = window.innerWidth;
+        confettiCanvas.height = window.innerHeight;
 
-            // NEW: Demo button and audio elements
-            const demoBtn = document.getElementById('demoBtn');
-            const bellSound = document.getElementById('bellSound');
-            const signupURL = "https://taniad2169.github.io/WebSwan-Free-Demo-App/";
+        demoBtn.addEventListener('click', function() {
+            // Add ringing animation
+            this.classList.add('ringing');
+            
+            // Play bell sound
+            bellSound.play();
+            
+            // Launch confetti
+            launchConfetti();
+            
+            // Remove animation after 1 second
+            setTimeout(() => {
+                this.classList.remove('ringing');
+            }, 1000);
+            
+            // Redirect after 2 seconds
+            setTimeout(() => {
+                window.open('https://taniad2169.github.io/WebSwan-Free-Demo-App/', '_blank');
+            }, 2000);
+        });
 
-            // UPDATED: Contact Information
-            const contactInfo = {
-                phone: '(415) 877-0687',
-                email: 'thewebswann@gmail.com'
-            };
-
-            // Update footer contact info
-            document.querySelector('footer p').innerHTML = 
-                `📧 Email: ${contactInfo.email} | 📞 Phone: ${contactInfo.phone}`;
-
-            // --- MODIFIED: loadYouTubeVideo function to REMOVE autoplay ---
-            function loadYouTubeVideo(videoId) {
-                // REMOVED: autoplay=1 from the URL
-                const newSrc = `https://www.youtube.com/embed/${videoId}`;
-                videoIframe.src = newSrc;
-                
-                // NEW: Smooth scroll to the YouTube player section
-                youtubePlayerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                // Close modal when a video is loaded (if it was opened via modal link)
-                closeModalFunc();
+        // Confetti function
+        function launchConfetti() {
+            const confettiCount = 200;
+            const confettiColors = ['#2cd0e6', '#58e8d7', '#ffd166', '#ff9a8b', '#c8a2ff'];
+            
+            for (let i = 0; i < confettiCount; i++) {
+                setTimeout(() => {
+                    const x = Math.random() * confettiCanvas.width;
+                    const y = -20;
+                    const size = Math.random() * 10 + 5;
+                    const color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+                    
+                    drawConfetti(x, y, size, color);
+                }, i * 10);
             }
+        }
 
-            // Your existing thumbnail click functionality - MODIFIED to use loadYouTubeVideo
-            videoThumbnails.addEventListener('click', (event) => {
-                const thumbnail = event.target.closest('.video-thumbnail');
-                if (thumbnail) {
-                    const videoId = thumbnail.dataset.videoId;
-                    // Check for multiple video IDs for the initial video to ensure it loads
-                    if (videoId) {
-                        loadYouTubeVideo(videoId);
-                    }
+        function drawConfetti(x, y, size, color) {
+            let velocityY = Math.random() * 5 + 2;
+            let velocityX = (Math.random() - 0.5) * 4;
+            let rotation = 0;
+            let rotationSpeed = (Math.random() - 0.5) * 0.2;
+            
+            function animate() {
+                ctx.clearRect(x - size/2 - 2, y - size/2 - 2, size + 4, size + 4);
+                
+                y += velocityY;
+                x += velocityX;
+                velocityY += 0.1; // gravity
+                rotation += rotationSpeed;
+                
+                if (y < confettiCanvas.height) {
+                    ctx.save();
+                    ctx.translate(x, y);
+                    ctx.rotate(rotation);
+                    ctx.fillStyle = color;
+                    ctx.fillRect(-size/2, -size/2, size, size);
+                    ctx.restore();
+                    requestAnimationFrame(animate);
+                }
+            }
+            
+            animate();
+        }
+
+        // Modal functionality
+        const modals = {
+            reviewsBtn: 'reviewsModal',
+            websiteGalleryBtn: 'websiteGalleryModal',
+            webApplicationsBtn: 'webApplicationsModal',
+            interactiveHubBtn: 'interactiveHubModal',
+            seoTipsBtn: 'seoTipsModal',
+            webDesignVsTemplatesBtn: 'webDesignVsTemplatesModal',
+            reputationManagementBtn: 'reputationManagementModal',
+            campaignMarketingBtn: 'campaignMarketingModal',
+            websiteTipsBtn: 'websiteTipsModal',
+            professionalsBtn: 'professionalsModal',
+            myBioBtn: 'myBioModal',
+            restaurantBarberBtn: 'restaurantBarberModal',
+            socialMediaBtn: 'socialMediaModal',
+            understandWebsiteBtn: 'understandWebsiteModal'
+        };
+
+        // Add event listeners for modal buttons
+        Object.keys(modals).forEach(buttonId => {
+            document.getElementById(buttonId).addEventListener('click', function() {
+                document.getElementById(modals[buttonId]).style.display = 'block';
+            });
+        });
+
+        // Close modals when clicking the X
+        document.querySelectorAll('.close-modal').forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                this.closest('.modal').style.display = 'none';
+            });
+        });
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(event) {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
                 }
             });
+        });
 
-            // Modal Functions
-            function showModal(content) {
-                modalContent.innerHTML = content;
-                modal.style.display = 'block';
-            }
-
-            function closeModalFunc() {
-                modal.style.display = 'none';
-            }
-
-            // Event Listeners
-            closeModal.addEventListener('click', closeModalFunc);
-            window.addEventListener('click', (e) => {
-                if (e.target === modal) closeModalFunc();
-            });
-
-            // UPDATED: Free Demo Button Click Handler with existing logic
-            demoBtn.addEventListener('click', () => {
-                // Play sound (using the new public URL)
-                bellSound.currentTime = 0;
-                // Use a try-catch for play() as it can be blocked by browsers
-                bellSound.play().catch(e => console.log("Audio play failed, likely autoplay blocked:", e));
-
-                // Start bell animation
-                demoBtn.classList.add("ringing");
-
-                // Start confetti for 3s
-                const end = Date.now() + 3000;
-                (function frame() {
-                    confetti({ particleCount: 5, angle: 60, spread: 55, origin: { x: 0 } });
-                    confetti({ particleCount: 5, angle: 120, spread: 55, origin: { x: 1 } });
-                    if (Date.now() < end) requestAnimationFrame(frame);
-                }());
-
-                // Stop and redirect
-                setTimeout(() => {
-                    demoBtn.classList.remove("ringing");
-                    window.location.href = signupURL;
-                }, 3000);
-            });
-
-            // --- Quick Search Button Handlers (MODIFIED to call loadYouTubeVideo which handles scroll) ---
-
-            document.getElementById('reviewsBtn').addEventListener('click', () => {
-                showModal(`
-                    <h3>⭐ Client Reviews & Recognition</h3>
-                    <p>See what our clients are saying about The WebSwan and our industry recognition:</p>
-                    
-                    <h4>Client Reviews</h4>
-                    <ul class="link-list">
-                        <li>🌟 <a href="https://www.yelp.com/biz/the-webswan-emeryville" target="_blank">Yelp Reviews</a></li>
-                        <li>🌟 <a href="https://www.google.com/maps/place/The+WebSwan/@32.352453,-173.8492288,3z/data=!4m10!1m2!2m1!1sreview+for+the+webswan!3m6!1s0xa2370697717bde97:0xe12746ae08472f10!8m2!3d32.352453!4d-100.0211038!15sChZyZXZpZXcgZm9yIHRoZSB3ZWJzd2FuIgI4AVoNIgt0aGUgd2Vic3dhbpIBEHdlYnNpdGVfZGVzaWduZXLgAQA!16s%2Fg%2F11w7l6dl3z?entry=ttu&g_ep=EgoyMDI1MDkyMi.0IKXMDSoASAFQAw%3D%3D" target="_blank">Google Reviews</a></li>
-                        <li>🌟 <a href="https://www.thewebswan.com/about-us" target="_blank">Additional Client Reviews</a></li>
-                    </ul>
-
-                    <h4>Industry Recognition</h4>
-                    <ul class="link-list">
-                        <li>🏆 <a href="https://www.google.com/search?q=nationwide+web+designer&rlz=1CAIPNW_enUS1176&oq=nationw&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIQCAEQLhjHARixAxjRAxiABDITCAIQLhjHARixAxjJAxjRAxiABDIGCAMQRRg5MgoIBBAAGLEDGIAEMgoIBRAAGLEDGIAEMgYIBhBFGD0yBggHEEUYPdIBCDEzODhqMGo0qAIDsAIB8QUd4UAKuDxs0vEFHeFACrg8bNI&sourceid=chrome&ie=UTF8" target="_blank">Nationwide Web Designer</a></li>
-                        <li>🌟 <a href="https://www.google.com/search?q=top+web+designer+in+oakland+ca&rlz=1CAIPNW_enUS1176&oq=top+&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIGCAEQRRg5Mg0IAhAAGJECGIAEGIoFMg0IAxAAGJECGIAEGIoFMgwIBBAAGEMYgAQYigUyBggFEEUYPTIGCAYQRRg9MgYIBxBFGDzSAQgzMzMyajBqOagCBrACAfEF0tUc0FGVuK3xBdLUHNBRlbit&sourceid=chrome&ie=UTF8" target="_blank">Top Web Designer Near Oakland, CA</a></li>
-                        <li>🚀 <a href="https://www.designrush.com/agency/website-design-development/california/oakland" target="_blank">Top 20 Web Designers on DesignRush</a></li>
-                    </ul>
-                `);
-            });
-
-            document.getElementById('websiteGalleryBtn').addEventListener('click', () => {
-                showModal(`
-                    <h3>🖼️ Website Gallery</h3>
-                    <p>Explore our diverse portfolio of website designs:</p>
-                    <ul class="link-list">
-                        <li>🏥 <a href="https://ersnoeromomdmba2.taniadomingue.multisiteadmin.com/" target="_blank">Top Orthopedics & Brain Surgeons - Beverly Hills, CA</a></li>
-                        <li>💇‍♀️ <a href="https://www.handsofgoldafricanhairbraiding.com/" target="_blank">African Hair Braider - Dallas, TX</a></li>
-                        <li>🎨 <a href="https://colbertlartiste.taniadomingue.multisiteadmin.com/a/preview" target="_blank">Doctor/Artist Portfolio (Under Development)</a></li>
-                        <li>🚗 <a href="https://robustautodetailing.taniadomingue.multisiteadmin.com/" target="_blank">Car Wash - Oakland, CA</a></li>
-                        <li>📊 <a href="https://expresscapitalnetworkassociates.com/" target="_blank">Lead Generation Landing Page</a></li>
-                        <li>💰 <a href="https://www.expresscapassociates.com/" target="_blank">Merchant Cash Advance Business Funding</a></li>
-                    </ul>
-                `);
-            });
-
-            document.getElementById('webApplicationsBtn').addEventListener('click', () => {
-                showModal(`
-                    <h3>⚡ Web Applications & Calendars</h3>
-                    <p>Custom web applications and scheduling solutions:</p>
-                    <ul class="link-list">
-                        <li>📅 <a href="https://taniad2169.github.io/Ek-s-Appointment-Calendar/" target="_blank">Barber Appointment Calendar</a></li>
-                        <li>🖼️ <a href="https://taniad2169.github.io/Ek-s-gallery/" target="_blank">Barber Portfolio Gallery</a></li>
-                        <li>📝 <a href="https://taniad2169.github.io/Express_online_application/" target="_blank">Merchant Cash Advance Application Form</a></li>
-                    </ul>
-                `);
-            });
-
-            document.getElementById('interactiveHubBtn').addEventListener('click', () => {
-                showModal(`
-                    <h3>🎯 Interactive Hub</h3>
-                    <p>Interactive brand showcases and business hubs:</p>
-                    <ul class="link-list">
-                        <li>🚀 <a href="https://taniad2169.github.io/Express-Capital-Automation/" target="_blank">Express Capital Associates Interactive Hub</a></li>
-                        <li>🧑‍🚒 <a href="https://taniad2169.github.io/Aleksander-s-Calendar-Firefighter/" target="_blank">Firefighter Calendar & Interactive Hub</a></li>
-                        <li>💼 <a href="#" target="_blank">Additional Interactive Hub (Coming Soon)</a></li>
-                    </ul>
-                `);
-            });
-
-            document.getElementById('seoTipsBtn').addEventListener('click', () => {
-                loadYouTubeVideo('63wUeBevFwY');
-            });
-
-            document.getElementById('webDesignVsTemplatesBtn').addEventListener('click', () => {
-                loadYouTubeVideo('OrtLBd7xFac');
-            });
-
-            document.getElementById('reputationManagementBtn').addEventListener('click', () => {
-                loadYouTubeVideo('5YvMyeFZGZA');
-            });
-
-            document.getElementById('campaignMarketingBtn').addEventListener('click', () => {
-                showModal(`
-                    <h3>📢 Campaign Marketing Videos</h3>
-                    <p>Click on any video to play it:</p>
-                    <ul class="link-list">
-                        <li>📢 <a href="#" onclick="loadYouTubeVideo('UNFkK0XC6dA'); return false;">Campaign Marketing Introduction</a></li>
-                        <li>📢 <a href="#" onclick="loadYouTubeVideo('ZJ5lOQdbL3o'); return false;">Google Ad Campaign Tips</a></li>
-                        <li>📢 <a href="#" onclick="loadYouTubeVideo('eX1Q_5PMtp4'); return false;">Advanced Campaign Marketing</a></li>
-                        <li>📢 <a href="#" onclick="loadYouTubeVideo('g0PYayzh49k'); return false;">Google Ad Campaign Tips</a></li>
-                        <li>📢 <a href="#" onclick="loadYouTubeVideo('7UPFrt9z3_U'); return false;">Website Tips for Campaigns</a></li>
-                    </ul>
-                `);
-            });
-
-            document.getElementById('websiteTipsBtn').addEventListener('click', () => {
-                showModal(`
-                    <h3>🌐 Website Tips Videos</h3>
-                    <p>Click on any video to play it:</p>
-                    <ul class="link-list">
-                        <li>🌐 <a href="#" onclick="loadYouTubeVideo('AhrG8jgQn3E'); return false;">Website Tips Part 2</a></li>
-                        <li>🌐 <a href="#" onclick="loadYouTubeVideo('wRWmozD3wY4'); return false;">Website Tips Part 3</a></li>
-                        <li>🌐 <a href="#" onclick="loadYouTubeVideo('hbgLZLsLTpg'); return false;">Website Tips Part 4</a></li>
-                        <li>🌐 <a href="#" onclick="loadYouTubeVideo('zwuc3cc9cMw'); return false;">Website Tips Part 5</a></li>
-                        <li>🌐 <a href="#" onclick="loadYouTubeVideo('9l8cmDEQz1k'); return false;">Website Tips for Entrepreneurs</a></li>
-                        <li>🌐 <a href="#" onclick="loadYouTubeVideo('gqLRG8LjCjE'); return false;">Website Tips for SEO</a></li>
-                        <li>🌐 <a href="#" onclick="loadYouTubeVideo('Mot2WC3782Q'); return false;">Website Tips for Design</a></li>
-                    </ul>
-                `);
-            });
-
-            document.getElementById('professionalsBtn').addEventListener('click', () => {
-                showModal(`
-                    <h3>👨‍⚕️👩‍💼 Professionals Videos</h3>
-                    <p>Click on any video to play it:</p>
-                    <ul class="link-list">
-                        <li>👨‍⚕️ <a href="#" onclick="loadYouTubeVideo('gyOnq1_hWdE'); return false;">Professionals Introduction</a></li>
-                        <li>👨‍⚕️ <a href="#" onclick="loadYouTubeVideo('YeD6xzy6TDQ'); return false;">The Best Website for Professionals</a></li>
-                    </ul>
-                `);
-            });
-
-            document.getElementById('myBioBtn').addEventListener('click', () => {
-                showModal(`
-                    <h3>👤 My Bio Videos</h3>
-                    <p>Click on any video to play it:</p>
-                    <ul class="link-list">
-                        <li>👤 <a href="#" onclick="loadYouTubeVideo('fIGlhDOziow'); return false;">My Bio Part 1</a></li>
-                        <li>👤 <a href="#" onclick="loadYouTubeVideo('sobmvBObvb8'); return false;">My Bio Part 2</a></li>
-                    </ul>
-                `);
-            });
-
-            document.getElementById('restaurantBarberBtn').addEventListener('click', () => {
-                showModal(`
-                    <h3>🍔✂️ Restaurant & Barber Videos</h3>
-                    <p>Click on any video to play it:</p>
-                    <ul class="link-list">
-                        <li>🍔 <a href="#" onclick="loadYouTubeVideo('Xwd9ORiyz8c'); return false;">Website for Restaurant Owners</a></li>
-                        <li>✂️ <a href="#" onclick="loadYouTubeVideo('0aGXbjSZ8KA'); return false;">Website for Barbers and Hairstylists</a></li>
-                    </ul>
-                `);
-            });
-            
-            // NEW: Social Media Button Handler
-            document.getElementById('socialMediaBtn').addEventListener('click', () => {
-                showModal(`
-                    <h3>📱 Connect with The WebSwan</h3>
-                    <p>Follow us on our social channels!</p>
-                    <ul class="link-list">
-                        <li>📘 <a href="https://www.facebook.com/profile.php?id=61564322427695" target="_blank">Facebook</a></li>
-                        <li>👔 <a href="https://www.linkedin.com/in/tania-domingue-882a68282/" target="_blank">LinkedIn</a></li>
-                        <li>🎵 <a href="https://www.tiktok.com/@user1615348297322" target="_blank">TikTok</a></li>
-                        <li>📸 <a href="https://www.instagram.com/motivationalll_speaker/" target="_blank">Instagram</a></li>
-                        <li>🤝 <a href="https://www.alignable.com/oakland-ca/the-webswan-web-design-consultant-effective-seo-content-writer-certified" target="_blank">Alignable</a></li>
-                    </ul>
-                `);
-            });
-            
-            // Make loadYouTubeVideo function available globally for modal links
-            window.loadYouTubeVideo = loadYouTubeVideo;
+        // Resize confetti canvas when window resizes
+        window.addEventListener('resize', function() {
+            confettiCanvas.width = window.innerWidth;
+            confettiCanvas.height = window.innerHeight;
         });
     </script>
 </body>
