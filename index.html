@@ -777,8 +777,8 @@
                 <button id="socialMediaBtn">📱 Social Media</button>
                 <!-- UPDATED: Understand Your Website Performance Button -->
                 <button id="understandWebsiteBtn">🔍 Understand Your Website Performance</button>
-                <!-- NEW: GoHighLevel Affiliate Link Button -->
-                <button id="gohighlevelBtn">🚀 GoHighLevel Affiliate</button>
+                <!-- NEW: States Compliance Cookie & Accessibility Button -->
+                <button id="statesComplianceBtn">⚖️ States Compliance Cookie & Accessibility</button>
             </div>
 
             <div class="video-thumbnails" id="video-thumbnails">
@@ -856,6 +856,10 @@
                 </div>
                 <div class="video-thumbnail" data-video-id="0aGXbjSZ8KA">
                     <img src="https://img.youtube.com/vi/0aGXbjSZ8KA/mqdefault.jpg" alt="Restaurant/Barber">
+                </div>
+                <!-- NEW: Added the new video thumbnail -->
+                <div class="video-thumbnail" data-video-id="elTA-tt4no0">
+                    <img src="https://img.youtube.com/vi/elTA-tt4no0/mqdefault.jpg" alt="States Compliance Cookie & Accessibility">
                 </div>
             </div>
         </section>
@@ -1037,6 +1041,8 @@
                 <li><a href="https://www.facebook.com/profile.php?id=61564322427695" target="_blank">Facebook</a></li>
                 <li><a href="https://www.linkedin.com/in/tania-domingue-882a68282/" target="_blank">LinkedIn</a></li>
                 <li><a href="https://www.instagram.com/motivationalll_speaker/" target="_blank">Instagram</a></li>
+                <!-- UPDATED: TikTok link -->
+                <li><a href="https://www.tiktok.com/@taniadomngue?lang=en" target="_blank">TikTok</a></li>
             </ul>
         </div>
     </div>
@@ -1053,13 +1059,13 @@
         </div>
     </div>
 
-    <!-- NEW: GoHighLevel Affiliate Modal -->
-    <div id="gohighlevelModal" class="modal">
+    <!-- NEW: States Compliance Cookie & Accessibility Modal -->
+    <div id="statesComplianceModal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h2>🚀 GoHighLevel Affiliate Link</h2>
+            <h2>⚖️ States Compliance Cookie & Accessibility</h2>
             <ul class="link-list">
-                <li><a href="https://www.gohighlevel.com/?fp_ref=tania46" target="_blank">GoHighLevel - All-in-One Marketing Platform</a></li>
+                <li><a href="#" data-video-id="elTA-tt4no0">Click here to watch the States Compliance Cookie & Accessibility video</a></li>
             </ul>
         </div>
     </div>
@@ -1100,7 +1106,7 @@
             });
         });
 
-        // Bell button animation and confetti
+        // Bell button animation and confetti - FIXED to link to application
         const demoBtn = document.getElementById('demoBtn');
         const bellSound = document.getElementById('bellSound');
         const confettiCanvas = document.getElementById('confetti-canvas');
@@ -1123,7 +1129,7 @@
                 this.classList.remove('ringing');
             }, 1000);
             
-            // Redirect after 2 seconds
+            // Redirect to application after 2 seconds (NOT calendar)
             setTimeout(() => {
                 window.open('https://taniad2169.github.io/WebSwan-Free-Demo-App/', '_blank');
             }, 2000);
@@ -1190,7 +1196,7 @@
             restaurantBarberBtn: 'restaurantBarberModal',
             socialMediaBtn: 'socialMediaModal',
             understandWebsiteBtn: 'understandWebsiteModal',
-            gohighlevelBtn: 'gohighlevelModal'
+            statesComplianceBtn: 'statesComplianceModal'
         };
 
         // Add event listeners for modal buttons
@@ -1236,6 +1242,28 @@
                     }
                 }, 100);
             }
+        });
+
+        // NEW: Handle video links in modals
+        document.querySelectorAll('.link-list a[data-video-id]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const videoId = this.getAttribute('data-video-id');
+                const iframe = document.getElementById('video-iframe');
+                iframe.src = `https://www.youtube.com/embed/${videoId}`;
+                
+                // Close the modal
+                this.closest('.modal').style.display = 'none';
+                
+                // Smooth scroll to the video section
+                const youtubeSection = document.getElementById('youtube-player');
+                if (youtubeSection) {
+                    youtubeSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     </script>
 </body>
