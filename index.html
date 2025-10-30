@@ -313,6 +313,30 @@
             background: linear-gradient(to right, #1a9fb2, #47d6c5);
         }
 
+        /* NEW: State Compliance Button Styling */
+        .state-compliance-button {
+            display: inline-block;
+            background-color: #14395d; /* Requested color */
+            color: white; /* White text for contrast */
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+            margin: 20px auto;
+            box-shadow: 0 4px 15px rgba(20, 57, 93, 0.5);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .state-compliance-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(20, 57, 93, 0.7);
+            background-color: #1c4a7a; /* Slightly lighter on hover */
+        }
+
         /* Bell animation (shake) */
         .ringing {
             animation: ring 0.3s linear infinite;
@@ -367,6 +391,19 @@
         .quick-search button:hover {
             background: #1e4870;
             color: white;
+        }
+
+        /* NEW: States Compliance Button in Quick Search */
+        #statesComplianceBtn {
+            background-color: #14395d; /* Requested color */
+            color: snow; /* Snow white font */
+            border: 1px solid #14395d;
+            font-weight: bold;
+        }
+
+        #statesComplianceBtn:hover {
+            background-color: #1c4a7a;
+            color: snow;
         }
 
         .loading {
@@ -569,6 +606,37 @@
             text-decoration: underline;
         }
 
+        /* NEW: State Compliance Modal Styling */
+        #statesComplianceModal .modal-content {
+            background-color: #14395d; /* Requested color */
+            color: snow; /* Snow white text for contrast */
+        }
+
+        #statesComplianceModal h2 {
+            color: snow;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #statesComplianceModal .link-list a {
+            color: snow;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        #statesComplianceModal .link-list a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
         /* Footer Styles */
         footer {
             text-align: center;
@@ -699,6 +767,10 @@
                 padding: 12px 25px;
                 font-size: 1.1em;
             }
+            .state-compliance-button {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
         }
     </style>
 </head>
@@ -756,6 +828,15 @@
                 <p style="color: #1e4870; font-weight: bold; margin-top: 10px;">Click the button above to play our exciting game and have a chance to win!</p>
             </div>
 
+            <!-- NEW: State Compliance Button Section -->
+            <div style="text-align: center; margin: 30px 0;">
+                <p class="button-title-text">⚖️ Free Website Compliance Audit ⚖️</p>
+                <a href="https://taniad2169.github.io/WS-Audit/" target="_blank" class="state-compliance-button">
+                    🛡️ Free Website Compliance Audit
+                </a>
+                <p style="color: #1e4870; font-weight: bold; margin-top: 10px;">Check if your website meets state + ADA compliance standards</p>
+            </div>
+
             <p class="button-title-text">ready to take your business to the next level ? click the bell to unlock your free demo!</p>
             <button id="demoBtn">🔔</button>
             <canvas id="confetti-canvas"></canvas>
@@ -775,10 +856,10 @@
                 <button id="myBioBtn">👤 My Bio</button>
                 <button id="restaurantBarberBtn">🍔✂️ Restaurant/Barber</button>
                 <button id="socialMediaBtn">📱 Social Media</button>
+                <!-- UPDATED: States Compliance Cookie & Accessibility Button moved to middle -->
+                <button id="statesComplianceBtn">⚖️ States Compliance Cookie & Accessibility</button>
                 <!-- UPDATED: Understand Your Website Performance Button -->
                 <button id="understandWebsiteBtn">🔍 Understand Your Website Performance</button>
-                <!-- NEW: States Compliance Cookie & Accessibility Button -->
-                <button id="statesComplianceBtn">⚖️ States Compliance Cookie & Accessibility</button>
             </div>
 
             <div class="video-thumbnails" id="video-thumbnails">
@@ -1047,6 +1128,18 @@
         </div>
     </div>
 
+    <!-- NEW: States Compliance Cookie & Accessibility Modal -->
+    <div id="statesComplianceModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>⚖️ States Compliance Cookie & Accessibility</h2>
+            <ul class="link-list">
+                <li><a href="https://taniad2169.github.io/WS-Audit/" target="_blank">Free Website Compliance Audit - Check if your website meets state + ADA compliance standards</a></li>
+                <li><a href="#" data-video-id="9ZoqCUo9NPg">Click here to watch the States Compliance Cookie & Accessibility video</a></li>
+            </ul>
+        </div>
+    </div>
+
     <!-- UPDATED: Understand Your Website Performance Modal with both links - Web Analysis replaced with Slot Machine -->
     <div id="understandWebsiteModal" class="modal">
         <div class="modal-content">
@@ -1055,17 +1148,6 @@
             <ul class="link-list">
                 <li><a href="https://taniad2169.github.io/WebSwan-Analysis-Overview/" target="_blank">Website Analysis Overview</a></li>
                 <li><a href="https://taniad2169.github.io/WS_slotmachine/" target="_blank">The WebSwan slot machine click to play</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- NEW: States Compliance Cookie & Accessibility Modal -->
-    <div id="statesComplianceModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>⚖️ States Compliance Cookie & Accessibility</h2>
-            <ul class="link-list">
-                <li><a href="#" data-video-id="9ZoqCUo9NPg">Click here to watch the States Compliance Cookie & Accessibility video</a></li>
             </ul>
         </div>
     </div>
